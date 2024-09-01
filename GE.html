@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffcccc; /* Reddish background */
+            color: #660000; /* Dark red text */
+            text-align: center;
+            padding: 20px;
+        }
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        button, select {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #cc0000; /* Reddish buttons */
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover, select:hover {
+            background-color: #990000; /* Darker red on hover */
+        }
+        #adminButton {
+            margin-top: 20px;
+            background-color: #660000; /* Dark red */
+        }
+        /* Logo styles */
+        .logo {
+            max-width: 150px; /* Adjust the size as needed */
+            margin-bottom: 20px;
+        }
+        /* Social Media Icons */
+        .social-media {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .social-media a {
+            color: #660000; /* Dark red color for icons */
+            font-size: 24px;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .social-media a:hover {
+            color: #cc0000; /* Lighter red on hover */
+        }
+        #resources {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Brand Logo -->
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK5MMuIPW_Bk-z9_jCMlcAfPE0WVEYaxw3YFPaw_bm0dSfIXOHnHmlIi57Jrl_08srqoGhVTvunkR-Y7pTrmY_M6O1Of0L7ukFQLxEErME_EZGmCOsWvvcd3rGzdafhAcqTszdGbhygG45MA-eEpFkUVdeKQ16o8tZ7cJEalwNvBlKcvVh7dd8p0X34bRs/s1600/1.png" alt="Brand Logo" class="logo">
+
+    <h1>General Elective (GE)</h1>
+
+    <!-- Dropdowns -->
+    <div>
+        <select id="classDropdown">
+            <option value="" disabled selected>Select Paper name</option>
+            <option value="bcom">B.Com</option>
+            <option value="bcom-h">B.Com (H)</option>
+            <option value="ba-h-hindi">B.A. (H) Hindi</option>
+            <option value="ba-h-economics">B.A. (H) Economics</option>
+            <option value="ba-h-history">B.A. (H) History</option>
+            <option value="ba-h-pol-science">B.A. (H) Political Science</option>
+            <option value="ba-h-english">B.A. (H) English</option>
+            <option value="ba-h-geography">B.A. (H) Geography</option>
+            <option value="ba-h-philosophy">B.A. (H) Philosophy</option>
+            <option value="ge">GENERAL ELECTIVE (GE)</option>
+            <option value="sec">SKILL ENHANCEMENT COURSE (SEC)</option>
+            <option value="vac">VALUE ADDITION COURSE (VAC)</option>
+            <option value="bsc-h-math">B.Sc. (H) Mathematics</option>
+            <option value="bsc-h-physics">B.Sc. (H) Physics</option>
+            <option value="bsc-h-cs">B.Sc. (H) Computer Science</option>
+            <option value="bsc-h-botany">B.Sc. (H) Botany</option>
+            <option value="bsc-h-zoology">B.Sc. (H) Zoology</option>
+            <option value="bsc-h-chem">B.Sc. (H) Chemistry</option>
+            <option value="bsc-ps-cs">B.Sc. Physical Science (Computer Science)</option>
+            <option value="bsc-life">B.Sc. Life Science</option>
+            <option value="bsc-ps">B.Sc. Physical Science</option>
+        </select>
+    </div>
+
+    <!-- Go Button -->
+    <button onclick="showResources()">Go</button>
+
+    <!-- Resources Section -->
+    <div id="resources"></div>
+
+    <script>
+        // Define resources for each paper
+        const resources = {
+            "bcom": ["B.Com Resource 1", "B.Com Resource 2", "B.Com Resource 3"],
+            "bcom-h": ["B.Com (H) Resource 1", "B.Com (H) Resource 2", "B.Com (H) Resource 3"],
+            "ba-h-hindi": ["B.A. (H) Hindi Resource 1", "B.A. (H) Hindi Resource 2", "B.A. (H) Hindi Resource 3"],
+            "ba-h-economics": ["B.A. (H) Economics Resource 1", "B.A. (H) Economics Resource 2", "B.A. (H) Economics Resource 3"],
+            "ba-h-history": ["B.A. (H) History Resource 1", "B.A. (H) History Resource 2", "B.A. (H) History Resource 3"],
+            "ba-h-pol-science": ["B.A. (H) Political Science Resource 1", "B.A. (H) Political Science Resource 2", "B.A. (H) Political Science Resource 3"],
+            "ba-h-english": ["B.A. (H) English Resource 1", "B.A. (H) English Resource 2", "B.A. (H) English Resource 3"],
+            "ba-h-geography": ["B.A. (H) Geography Resource 1", "B.A. (H) Geography Resource 2", "B.A. (H) Geography Resource 3"],
+            "ba-h-philosophy": ["B.A. (H) Philosophy Resource 1", "B.A. (H) Philosophy Resource 2", "B.A. (H) Philosophy Resource 3"],
+            "ge": ["GE Resource 1", "GE Resource 2", "GE Resource 3"],
+            "sec": ["SEC Resource 1", "SEC Resource 2", "SEC Resource 3"],
+            "vac": ["VAC Resource 1", "VAC Resource 2", "VAC Resource 3"],
+            "bsc-h-math": ["B.Sc. (H) Mathematics Resource 1", "B.Sc. (H) Mathematics Resource 2", "B.Sc. (H) Mathematics Resource 3"],
+            "bsc-h-physics": ["B.Sc. (H) Physics Resource 1", "B.Sc. (H) Physics Resource 2", "B.Sc. (H) Physics Resource 3"],
+            "bsc-h-cs": ["B.Sc. (H) Computer Science Resource 1", "B.Sc. (H) Computer Science Resource 2", "B.Sc. (H) Computer Science Resource 3"],
+            "bsc-h-botany": ["B.Sc. (H) Botany Resource 1", "B.Sc. (H) Botany Resource 2", "B.Sc. (H) Botany Resource 3"],
+            "bsc-h-zoology": ["B.Sc. (H) Zoology Resource 1", "B.Sc. (H) Zoology Resource 2", "B.Sc. (H) Zoology Resource 3"],
+            "bsc-h-chem": ["B.Sc. (H) Chemistry Resource 1", "B.Sc. (H) Chemistry Resource 2", "B.Sc. (H) Chemistry Resource 3"],
+            "bsc-ps-cs": ["B.Sc. Physical Science (Computer Science) Resource 1", "B.Sc. Physical Science (Computer Science) Resource 2", "B.Sc. Physical Science (Computer Science) Resource 3"],
+            "bsc-life": ["B.Sc. Life Science Resource 1", "B.Sc. Life Science Resource 2", "B.Sc. Life Science Resource 3"],
+            "bsc-ps": ["B.Sc. Physical Science Resource 1", "B.Sc. Physical Science Resource 2", "B.Sc. Physical Science Resource 3"]
+        };
+
+        // Function to display resources based on the selected paper
+        function showResources() {
+            const selectedPaper = document.getElementById("classDropdown").value;
+            const resourcesDiv = document.getElementById("resources");
+
+            // Clear previous resources
+            resourcesDiv.innerHTML = "";
+
+            // Check if a valid paper is selected
+            if (selectedPaper) {
+                const availableResources = resources[selectedPaper];
+
+                // Display available resources
+                if (availableResources && availableResources.length > 0) {
+                    const ul = document.createElement("ul");
+
+                    availableResources.forEach(resource => {
+                        const li = document.createElement("li");
+                        li.textContent = resource;
+                        ul.appendChild(li);
+                    });
+
+                    resourcesDiv.appendChild(ul);
+                } else {
+                    resourcesDiv.textContent = "No resources available for this paper.";
+                }
+            } else {
+                alert("Please select a paper name.");
+            }
+        }
+    </script>
+
+    <!-- Social Media Icons -->
+    <div class="social-media">
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="#" title="Mail"><i class="fas fa-envelope"></i></a>
+    </div>
+</body>
+</html>

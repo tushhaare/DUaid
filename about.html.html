@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        .social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    color: #ffcccc;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.social-media a:hover {
+    color: #ffffff;
+}
+
+.social-media i {
+    vertical-align: middle;
+}
+        body {
+            background-color: #660000;
+            color: #ffcccc;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: #660000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        .text-content {
+            max-width: 60%;
+            text-align: left;
+        }
+
+        .text-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffcccc;
+        }
+
+        .text-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #ffcccc;
+        }
+
+        .text-content a {
+            color: #ffcccc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .text-content a:hover {
+            text-decoration: underline;
+        }
+
+        #more-info {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .photo-container {
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .photo-container img {
+            height: 100%;
+            max-height: 600px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            background-color: #ffcccc;
+            color: #660000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #ffcccc;
+            opacity: 0.8;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .text-content, .photo-container {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .photo-container img {
+                width: 100%;
+                height: auto;
+                max-height: none;
+            }
+
+            .text-content h1 {
+                font-size: 2em;
+            }
+
+            .text-content p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+    <script>
+        function toggleInfo() {
+            var moreInfo = document.getElementById('more-info');
+            if (moreInfo.style.display === 'none') {
+                moreInfo.style.display = 'block';
+            } else {
+                moreInfo.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="logo">
+        <img src="https://i.ibb.co/0B7B2cP/20240902-075332-0000.png" alt="Logo" width="100">
+    </div>
+    <div class="container">
+        <div class="text-content">
+            <h1>About Us</h1>
+            <p>Welcome to our website! We are passionate about [your mission or business]. Our goal is to [describe your goals or what your website aims to do].</p>
+            <p>Feel free to explore and connect with us!</p>
+            <p>Contact us at <a href="mailto:yourmail@example.com">yourmail@example.com</a></p>
+            <button onclick="toggleInfo()">More Info</button>
+            <div id="more-info">
+                <p>Here you can add more details about your company, your history, values, or any other additional information that might interest your visitors.</p>
+            </div>
+        </div>
+           </p>     <strong>INITIATIVE BY</strong><br>
+                TUSHAR (Owner, DUaid)<br>
+                Pursuing B.A. (Hons.) History<br>
+                at Atma Ram Sanatan Dharma College<br>
+                (University of Delhi)
+            </div>
+        </div>
+    </div>
+        <div class="social-media">
+        <a href="https://wa.me/your-number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/your-username" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://instagram.com/your-username" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:yourmail@example.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DUaid Resources Portal | Home</title>
@@ -11,7 +11,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       background-color: #ffffff;
-      color: #ffffff;
+      color: #660000; /* Ensure text is visible */
     }
 
     /* Header Section */
@@ -19,17 +19,21 @@
       background-color: #660000;
       padding: 20px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .header img {
       width: 100px;
-      vertical-align: center;
+      margin-right: 15px; /* Space between logo and text */
     }
 
     .header h1 {
       display: inline-block;
       margin: 0;
       font-size: 1.5rem;
+      color: #ffcccc; /* Matches your theme */
     }
 
     /* Navigation Icons */
@@ -41,8 +45,8 @@
 
     .nav-icons a {
       display: inline-block;
-      width: 100px;
-      margin: 10px;
+      width: 140px;
+      margin: 20px;
       text-decoration: none;
       color: #660000;
     }
@@ -57,37 +61,6 @@
       margin: 0 auto;
     }
 
-    /* Notice Section */
-    .notice-section {
-      background-color: #4d0000;
-      padding: 20px;
-      margin: 20px 0;
-      text-align: center;
-    }
-
-    .notice-section h2 {
-      color: #ffcccc;
-    }
-
-    .notice-scroll {
-      max-height: 150px;
-      overflow-y: hidden;
-      position: relative;
-    }
-
-    .notice-item {
-      animation: scroll-up 10s linear infinite;
-    }
-
-    @keyframes scroll-up {
-      0% {
-        transform: translateY(100%);
-      }
-      100% {
-        transform: translateY(-100%);
-      }
-    }
-
     /* Footer */
     .footer {
       background-color: #800000;
@@ -95,52 +68,73 @@
       padding: 10px;
       color: #ffcccc;
     }
+    /* Notice Section */
+    .notice-section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center; /* Center-align the notice section */
+    }
 
+    .notice-section h2 {
+      color: #660000;
+      text-align: center; /* Center-align the notice heading */
+    }
+    
   </style>
 </head>
 <body>
 
   <!-- Header Section -->
   <div class="header">
-    <img src="https://i.ibb.co/0B7B2cP/20240902-075332-0000.png" alt="Logo"> <br>
-    <h1>Welcome to DUaid</h1>
+    <img src="https://i.ibb.co/0B7B2cP/20240902-075332-0000.png" alt="DUaid Logo">
+    <h1>DUaid Resources Portal</h1>
   </div>
 
-  <!-- Navigation Section -->
-  <div class="nav-icons">
-    <a href="https://tushhaare.github.io/DUaid/about.html">
-      <img src="https://i.ibb.co/HXV0Wbv/file-info.gif" alt="Home">
-      <span>About Us</span>
-    </a>
-    <a href="#">
-      <img src="https://i.ibb.co/hLcqKSH/people-contact.gif" alt="Journals">
-      <span>Contact Us</span>
-    </a>
-    <a href="https://tushhaare.github.io/DUaid/GE">
-      <img src="https://i.ibb.co/bPqCzsq/education.gif" alt="GE">
-      <span>Generic Elective (GE)</span>
-    </a>
-    <a href="#">
-      <img src="https://i.ibb.co/HXhGYGK/employee.gif" alt="SEC">
-      <span>Skill Enhancement Course (SEC)</span>
-    </a>
-    <a href="#">
-      <img src="https://i.ibb.co/QHbx0WB/diamond.gif" alt="VAC">
-      <span>Value Addition Course (VAC)</span>
-    </a>
-    <a href="#">
-      <img src="https://i.ibb.co/xf5hn8K/online-learning.gif" alt="Core">
-      <span>Core Papers</span>
-    </a>
-  </div>
+  <!-- Rest of the body content -->
+
+</body>
+</html>
 
 <!-- Notice Section -->
 <div class="notice-section">
   <h2>Notices</h2>
   <div class="notice-scroll">
     <ul class="notice-item">
-      <li><a href="https://drive.google.com/uc?export=download&id=1pF8UtYhEb7H_ZhNlXS_aYvp-sfeTVrlJ" target="_blank" style="color: #ffcccc; text-decoration: none;">Important Notice (dated 05-09-2024)</a></li>
+      <li><a href="https://drive.google.com/uc?export=download&id=1pF8UtYhEb7H_ZhNlXS_aYvp-sfeTVrlJ" target="_blank" style="color: #660000; text-decoration: none;">Important Notice (dated 05-09-2024)</a></li>
     </ul>
+    
+<!-- Navigation Section -->
+<div class="nav-icons">
+  <a href="https://tushhaare.github.io/DUaid/about.html">
+    <img src="https://i.ibb.co/HXV0Wbv/file-info.gif" alt="Home">
+    <span>About Us</span>
+  </a>
+  <a href="#">
+    <img src="https://i.ibb.co/hLcqKSH/people-contact.gif" alt="Contact">
+    <span>Contact Us</span>
+  </a>
+  <a href="https://tushhaare.github.io/DUaid/GE">
+    <img src="https://i.ibb.co/bPqCzsq/education.gif" alt="GE">
+    <span>Course Wise</span>
+  </a>
+  <a href="https://tushhaare.github.io/DUaid/GE">
+    <img src="https://i.ibb.co/xf5hn8K/online-learning.gif" alt="AEC">
+    <span>Generic Elective (GE)</span>
+  </a>
+  <a href="#">
+    <img src="https://i.ibb.co/HXhGYGK/employee.gif" alt="SEC">
+    <span>Skill Enhancement Course (SEC)</span>
+  </a>
+  <a href="#">
+    <img src="https://i.ibb.co/QHbx0WB/diamond.gif" alt="VAC">
+    <span>Value Addition Course (VAC)</span>
+  </a>
+  <a href="#">
+    <img src="https://i.ibb.co/31nb0bx/eco-bulb.gif" alt="Core">
+    <span>Ability Enhancement Course (AEC)</span>
+  </a>
+</div>
   </div>
 </div>
 
@@ -160,10 +154,10 @@
   </a>
 </div>
 </br>
-  <!-- Footer Section -->
+  <!-- Footer Section -->="<a href=""></a>"
   <div class="footer">
-    <p>&copy; 2024 DUaid</p>
+    <p>&copy; DUaid h. avcvuxc am ccrgs dzyhh ghh:.ycx 2024 - =""All rights DUaid</p>
   </div>
-
+<a href=""></a><a href=""></a>
 </body>
 </html>

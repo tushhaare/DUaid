@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEC Study Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #ffcccc;
+            color: #660000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        select, button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover, select:hover {
+            background-color: #990000;
+        }
+
+        #resources {
+            margin-top: 20px;
+        }
+
+        .links {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .links a {
+            color: #ffcccc;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 5px 0;
+            display: block;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            color: #cc0000;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+        .social-media a:hover {
+            color: #ffffff;
+        }
+
+        .social-media i {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="https://i.ibb.co/NKjF3Jz/20240901-181658-0000.png" alt="Logo" width="150">
+    </div>
+    <div class="container">
+        <h1>Select Your SEC Subject</h1>
+
+        <!-- Dropdown for SEC Papers -->
+        <select id="geDropdown">
+            <option value="" disabled selected>Select your GE paper</option>
+            <option value="micro-economics">Introductory Micro Economics</option>
+            <option value="delhi-ages">Delhi Through the Ages</option>
+            <option value="indian-political-thought">Ideas in Indian Political Thought</option>
+            <option value="nationalism-india">Nationalism in India</option>
+            <option value="globalisation-politics">Politics of Globalisation</option>
+            <option value="calculus-fundamentals">Fundamentals of Calculus</option>
+            <option value="rachnatamak-lekhan">Rachnatamak Lekhan</option>
+            <option value="indian-geography">Indian Geography</option>
+            <option value="hindi-cinema">Hindi Cinema or Uska Addhyan</option>
+            <option value="indian-society">Understanding Indian Society</option>
+            <option value="post-colonial-india">Making of Post Colonial India</option>
+            <option value="psychology-foundations">Foundations of Psychology</option>
+            <option value="finance-everyone">Finance for Everyone</option>
+            <option value="understanding-psychology">Understanding Psychology</option>
+            <option value="genre-fiction">Genre Fiction</option>
+            <option value="additional-1">Sociology of Religion</option>
+            <option value="additional-2">Environmental Studies</option>
+            <option value="additional-3">Creative Writing</option>
+            <option value="additional-4">Human Rights</option>
+            <option value="additional-5">Digital Media Literacy</option>
+        </select>
+
+        <!-- Go Button -->
+        <button onclick="showResources()">Go</button>
+
+        <!-- Resources Section -->
+        <div id="resources"></div>
+    </div>
+
+    <div class="social-media">
+        <a href="https://whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/RealDUaid" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://instagram.com/cuetbynta" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:cuetbynta@yahoo.com" target="_blank"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <script>
+        // Define resource links for each SEC paper
+        const resources = {
+            "micro-economics": {
+                "Syllabus": "link-to-syllabus-microeconomics",
+                "Study Material": "link-to-study-material-microeconomics",
+                "PYQs": "link-to-pyqs-microeconomics"
+            },
+            "delhi-ages": {
+                "Syllabus": "link-to-syllabus-delhi-ages",
+                "Study Material": "link-to-study-material-delhi-ages",
+                "PYQs": "link-to-pyqs-delhi-ages"
+            },
+            "indian-political-thought": {
+                "Syllabus": "link-to-syllabus-indian-political-thought",
+                "Study Material": "link-to-study-material-indian-political-thought",
+                "PYQs": "link-to-pyqs-indian-political-thought"
+            },
+            "nationalism-india": {
+                "Syllabus": "link-to-syllabus-nationalism-india",
+                "Study Material": "link-to-study-material-nationalism-india",
+                "PYQs": "link-to-pyqs-nationalism-india"
+            },
+            "globalisation-politics": {
+                "Syllabus": "link-to-syllabus-globalisation-politics",
+                "Study Material": "link-to-study-material-globalisation-politics",
+                "PYQs": "link-to-pyqs-globalisation-politics"
+            },
+            "calculus-fundamentals": {
+                "Syllabus": "link-to-syllabus-calculus-fundamentals",
+                "Study Material": "link-to-study-material-calculus-fundamentals",
+                "PYQs": "link-to-pyqs-calculus-fundamentals"
+            },
+            "rachnatamak-lekhan": {
+                "Syllabus": "link-to-syllabus-rachnatamak-lekhan",
+                "Study Material": "link-to-study-material-rachnatamak-lekhan",
+                "PYQs": "link-to-pyqs-rachnatamak-lekhan"
+            },
+            "indian-geography": {
+                "Syllabus": "link-to-syllabus-indian-geography",
+                "Study Material": "link-to-study-material-indian-geography",
+                "PYQs": "link-to-pyqs-indian-geography"
+            },
+            "hindi-cinema": {
+                "Syllabus": "link-to-syllabus-hindi-cinema",
+                "Study Material": "link-to-study-material-hindi-cinema",
+                "PYQs": "link-to-pyqs-hindi-cinema"
+            },
+            "indian-society": {
+                "Syllabus": "link-to-syllabus-indian-society",
+                "Study Material": "link-to-study-material-indian-society",
+                "PYQs": "link-to-pyqs-indian-society"
+            },
+            "post-colonial-india": {
+                "Syllabus": "link-to-syllabus-post-colonial-india",
+                "Study Material": "link-to-study-material-post-colonial-india",
+                "PYQs": "link-to-pyqs-post-colonial-india"
+            },
+            "psychology-foundations": {
+                "Syllabus": "link-to-syllabus-psychology-foundations",
+                "Study Material": "link-to-study-material-psychology-foundations",
+                "PYQs": "link-to-pyqs-psychology-foundations"
+            },
+            "finance-everyone": {
+                "Syllabus": "link-to-syllabus-finance-everyone",
+                "Study Material": "link-to-study-material-finance-everyone",
+                "PYQs": "link-to-pyqs-finance-everyone"
+            },
+            "understanding-psychology": {
+                "Syllabus": "link-to-syllabus-understanding-psychology",
+                "Study Material": "link-to-study-material-understanding-psychology",
+                "PYQs": "link-to-pyqs-understanding-psychology"
+            },
+            "genre-fiction": {
+                "Syllabus": "link-to-syllabus-genre-fiction",
+                "Study Material": "link-to-study-material-genre-fiction",
+                "PYQs": "link-to-pyqs-genre-fiction"
+            },
+            "additional-1": {
+                "Syllabus": "link-to-syllabus-sociology-religion",
+                "Study Material": "link-to-study-material-sociology-religion",
+                "PYQs": "link-to-pyqs-sociology-religion"
+            },
+            "additional-2": {
+                "Syllabus": "link-to-syllabus-environmental-studies",
+                "Study Material": "link-to-study-material-environmental-studies",
+                "PYQs": "link-to-pyqs-environmental-studies"
+            },
+            "additional-3": {
+                "Syllabus": "link-to-syllabus-creative-writing",
+                "Study Material": "link-to-study-material-creative-writing",
+                "PYQs": "link-to-pyqs-creative-writing"
+            },
+            "additional-4": {
+                "Syllabus": "link-to-syllabus-human-rights",
+                "Study Material": "link-to-study-material-human-rights",
+                "PYQs": "link-to-pyqs-human-rights"
+            },
+            "additional-5": {
+                "Syllabus": "link-to-syllabus-digital-media-literacy",
+                "Study Material": "link-to-study-material-digital-media-literacy",
+                "PYQs": "link-to-pyqs-digital-media-literacy"
+            }
+        };
+
+        function showResources() {
+            var geDropdown = document.getElementById('geDropdown');
+            var selectedGE = geDropdown.value;
+            var resources = {
+                "micro-economics": {
+                    "Syllabus": "link-to-syllabus-microeconomics",
+                    "Study Material": "link-to-study-material-microeconomics",
+                    "PYQs": "link-to-pyqs-microeconomics"
+                },
+                "delhi-ages": {
+                    "Syllabus": "link-to-syllabus-delhi-ages",
+                    "Study Material": "link-to-study-material-delhi-ages",
+                    "PYQs": "link-to-pyqs-delhi-ages"
+                },
+                "indian-political-thought": {
+                    "Syllabus": "link-to-syllabus-indian-political-thought",
+                    "Study Material": "link-to-study-material-indian-political-thought",
+                    "PYQs": "link-to-pyqs-indian-political-thought"
+                },
+                "nationalism-india": {
+                    "Syllabus": "link-to-syllabus-nationalism-india",
+                    "Study Material": "link-to-study-material-nationalism-india",
+                    "PYQs": "link-to-pyqs-nationalism-india"
+                },
+                "globalisation-politics": {
+                    "Syllabus": "link-to-syllabus-globalisation-politics",
+                    "Study Material": "link-to-study-material-globalisation-politics",
+                    "PYQs": "link-to-pyqs-globalisation-politics"
+                },
+                "calculus-fundamentals": {
+                    "Syllabus": "link-to-syllabus-calculus-fundamentals",
+                    "Study Material": "link-to-study-material-calculus-fundamentals",
+                    "PYQs": "link-to-pyqs-calculus-fundamentals"
+                },
+                "rachnatamak-lekhan": {
+                    "Syllabus": "link-to-syllabus-rachnatamak-lekhan",
+                    "Study Material": "link-to-study-material-rachnatamak-lekhan",
+                    "PYQs": "link-to-pyqs-rachnatamak-lekhan"
+                },
+                "indian-geography": {
+                    "Syllabus": "link-to-syllabus-indian-geography",
+                    "Study Material": "link-to-study-material-indian-geography",
+                    "PYQs": "link-to-pyqs-indian-geography"
+                },
+                "hindi-cinema": {
+                    "Syllabus": "link-to-syllabus-hindi-cinema",
+                    "Study Material": "link-to-study-material-hindi-cinema",
+                    "PYQs": "link-to-pyqs-hindi-cinema"
+                },
+                "indian-society": {
+                    "Syllabus": "link-to-syllabus-indian-society",
+                    "Study Material": "link-to-study-material-indian-society",
+                    "PYQs": "link-to-pyqs-indian-society"
+                },
+                "post-colonial-india": {
+                    "Syllabus": "link-to-syllabus-post-colonial-india",
+                    "Study Material": "link-to-study-material-post-colonial-india",
+                    "PYQs": "link-to-pyqs-post-colonial-india"
+                },
+                "psychology-foundations": {
+                    "Syllabus": "link-to-syllabus-psychology-foundations",
+                    "Study Material": "link-to-study-material-psychology-foundations",
+                    "PYQs": "link-to-pyqs-psychology-foundations"
+                },
+                "finance-everyone": {
+                    "Syllabus": "link-to-syllabus-finance-everyone",
+                    "Study Material": "link-to-study-material-finance-everyone",
+                    "PYQs": "link-to-pyqs-finance-everyone"
+                },
+                "understanding-psychology": {
+                    "Syllabus": "link-to-syllabus-understanding-psychology",
+                    "Study Material": "link-to-study-material-understanding-psychology",
+                    "PYQs": "link-to-pyqs-understanding-psychology"
+                },
+                "genre-fiction": {
+                    "Syllabus": "link-to-syllabus-genre-fiction",
+                    "Study Material": "link-to-study-material-genre-fiction",
+                    "PYQs": "link-to-pyqs-genre-fiction"
+                },
+                "additional-1": {
+                    "Syllabus": "link-to-syllabus-sociology-religion",
+                    "Study Material": "link-to-study-material-sociology-religion",
+                    "PYQs": "link-to-pyqs-sociology-religion"
+                },
+                "additional-2": {
+                    "Syllabus": "link-to-syllabus-environmental-studies",
+                    "Study Material": "link-to-study-material-environmental-studies",
+                    "PYQs": "link-to-pyqs-environmental-studies"
+                },
+                "additional-3": {
+                    "Syllabus": "link-to-syllabus-creative-writing",
+                    "Study Material": "link-to-study-material-creative-writing",
+                    "PYQs": "link-to-pyqs-creative-writing"
+                },
+                "additional-4": {
+                    "Syllabus": "link-to-syllabus-human-rights",
+                    "Study Material": "link-to-study-material-human-rights",
+                    "PYQs": "link-to-pyqs-human-rights"
+                },
+                "additional-5": {
+                    "Syllabus": "link-to-syllabus-digital-media-literacy",
+                    "Study Material": "link-to-study-material-digital-media-literacy",
+                    "PYQs": "link-to-pyqs-digital-media-literacy"
+                }
+            };
+            var resourcesDiv = document.getElementById('resources');
+            resourcesDiv.innerHTML = '';
+
+            if (selectedGE && resources[selectedGE]) {
+                var selectedResources = resources[selectedGE];
+                for (var resource in selectedResources) {
+                    if (selectedResources.hasOwnProperty(resource)) {
+                        var link = document.createElement('a');
+                        link.href = selectedResources[resource];
+                        link.textContent = resource;
+                        link.target = '_blank';
+                        link.style.display = 'block';
+                        resourcesDiv.appendChild(link);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

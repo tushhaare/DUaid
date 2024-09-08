@@ -19,65 +19,104 @@
             box-sizing: border-box;
         }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #330000;
-            padding: 15px 30px;
-        }
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensures vertical alignment */
+    background-color: #330000;
+    padding: 15px 30px;
+    position: relative;
+    z-index: 10;
+}
 
-        .navbar img {
-            height: 60px;
-            width: auto;
-        }
+.navbar img {
+    height: 60px; /* Adjust logo height for better quality */
+    width: auto;
+}
 
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #ffcccc;
+}
 
-        .navbar ul li {
-            margin: 0 20px;
-        }
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .navbar ul {
+        display: none;
+    }
 
-        .navbar ul li a {
-            color: #ffcccc;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-        }
+    .navbar ul.mobile.active {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
-        .navbar ul li a:hover {
-            background-color: #ffcccc;
-            color: #330000;
-            border-radius: 5px;
-        }
+/* Mobile Menu */
+.navbar ul.mobile li a {
+    color: #ffcccc; /* Light color for the mobile menu links */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+}
 
-        /* Fading banner */
-        .banner-container {
-            width: 100%;
-            height: 400px;
-            position: relative;
-            overflow: hidden;
-        }
+.navbar ul.mobile li a:hover {
+    background-color: #ff9999; /* Lighter background on hover */
+    color: #330000; /* Dark text color on hover */
+    border-radius: 5px;
+}
 
-        .banner-container img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #ffcccc;
+}
 
-        .banner-container img.active {
-            opacity: 1;
-        }
+.navbar ul.mobile {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #330000;
+    width: 100%;
+    z-index: 10; /* Ensure the mobile menu is also on top of the banner */
+}
 
+.navbar ul.mobile li {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+}
+
+/* Fading banner */
+.banner-container {
+    width: 100%;
+    min-height: 400px; /* Adjust this to fit the height you want */
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Ensure the banner is behind the navbar */
+}
+
+.banner-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.banner-container img.active {
+    opacity: 1;
+}
         /* Welcome message */
         .welcome-message {
             text-align: center;
@@ -177,8 +216,15 @@
         /* Responsive design */
         @media (max-width: 768px) {
             .navbar ul {
-                flex-direction: column;
-                align-items: center;
+                display: none;
+            }
+
+            .navbar ul.mobile.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
             }
 
             .banner-container img {
@@ -193,12 +239,20 @@
 </head>
 <body>
 
-    <!-- Navigation Menu with Logo -->
+    <!-- Navigation Menu with Logo and Hamburger -->
     <div class="navbar">
-        <img src="https://i.ibb.co/XW6JGM8/Untitled-design-10.png" alt="DUaid Logo">
-        <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+        <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid Logo">
+        <ul class="desktop">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#declaration">Declaration</a></li>
+            <li><a href="#work">Work With Us</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+        <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+        <ul class="mobile">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li><a href="#declaration">Declaration</a></li>
             <li><a href="#work">Work With Us</a></li>
             <li><a href="#feedback">Feedback</a></li>
@@ -207,9 +261,9 @@
 
     <!-- Fading Banner -->
     <div class="banner-container">
-        <img src="https://i.ibb.co/7kbPY4R/1.png" alt="Banner 1" class="active">
-        <img src="https://i.ibb.co/TKP0r3q/2.png" alt="Banner 2">
-        <img src="https://i.ibb.co/6t5tpMg/3-2.png" alt="Banner 3">
+        <img src="https://i.imghippo.com/files/Jqf3B1725804629.png" alt="Banner 1" class="active">
+        <img src="https://i.imghippo.com/files/VkmbP1725804708.png" alt="Banner 2">
+        <img src="https://i.imghippo.com/files/OEOox1725804740.png" alt="Banner 3">
     </div>
 
     <!-- Welcome Message -->
@@ -223,16 +277,16 @@
         <h2>Important Notices</h2>
         <div class="notices">
             <div>
-                <a href="https://www.example.com/notice1">Notice 1: Admissions Update</a><br>
-                <a href="https://www.example.com/notice2">Notice 2: Exam Schedule Released</a><br>
-                <a href="https://www.example.com/notice3">Notice 3: New Courses Available</a><br>
-                <a href="https://www.example.com/notice4">Notice 4: Placement Drive</a>
+                <a href="https://drive.google.com/uc?export=download&id=1pF8UtYhEb7H_ZhNlXS_aYvp-sfeTVrlJ">Notice regarding Website Development (Dated : 05-09-2024)</a><br>
+                <a href="#">Notice 2: SAMPLE</a><br>
+                <a href="#">Notice 3: SAMPLE</a><br>
+                <a href="#">Notice 4: SAMPLE</a>
             </div>
         </div>
     </div>
 
     <!-- Continue Button -->
-    <a class="continue-btn" href="https://www.duaid.com">Continue to Website</a>
+    <a class="continue-btn" href="https://www.tushhaare.github.io/DUaid">Continue to Website</a>
 
     <!-- Footer with Social Media Icons -->
     <footer>
@@ -245,23 +299,24 @@
     </footer>
 
     <script>
+        // Hamburger menu toggle
+        function toggleMenu() {
+            const mobileMenu = document.querySelector('.navbar ul.mobile');
+            mobileMenu.classList.toggle('active');
+        }
+
         let currentIndex = 0;
         const banners = document.querySelectorAll('.banner-container img');
         const totalBanners = banners.length;
 
-        function showBanner(index) {
-            banners.forEach((img, i) => {
-                img.classList.remove('active');
-                if (i === index) {
-                    img.classList.add('active');
-                }
-            });
+        function showNextBanner() {
+            banners[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalBanners;
+            banners[currentIndex].classList.add('active');
         }
 
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalBanners;
-            showBanner(currentIndex);
-        }, 5000); // Change every 5 seconds
+        // Change banners every 5 seconds
+        setInterval(showNextBanner, 5000);
     </script>
 
 </body>

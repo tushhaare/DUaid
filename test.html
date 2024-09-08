@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUaid Homepage</title>
+    
+    <!-- FontAwesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #660000;
+            color: #ffcccc;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #330000;
+            padding: 15px 30px;
+        }
+
+        .navbar img {
+            height: 60px;
+            width: auto;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+        }
+
+        .navbar ul li a {
+            color: #ffcccc;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #ffcccc;
+            color: #330000;
+            border-radius: 5px;
+        }
+
+        /* Fading banner */
+        .banner-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .banner-container img.active {
+            opacity: 1;
+        }
+
+        /* Welcome message */
+        .welcome-message {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .welcome-message h1 {
+            margin: 0;
+            color: #ff9999;
+        }
+
+        .welcome-message p {
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+        }
+
+        /* Notice board */
+        .notice-board {
+            background-color: #330000;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .notice-board h2 {
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffcccc;
+        }
+
+        .notices {
+            height: 100px;
+            overflow: hidden;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .notices div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: scroll 12s linear infinite;
+        }
+
+        .notices div a {
+            color: #ffcccc;
+            text-decoration: none;
+        }
+
+        @keyframes scroll {
+            0% { top: 100%; }
+            100% { top: -100%; }
+        }
+
+        /* Continue button */
+        .continue-btn {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background-color: #ffcccc;
+            color: #330000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .continue-btn:hover {
+            background-color: #ff9999;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #330000;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: #ffcccc;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .social-icons a:hover {
+            color: #ff9999;
+        }
+
+        .social-icons a i {
+            font-size: 24px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .banner-container img {
+                height: auto;
+            }
+
+            .continue-btn {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Menu with Logo -->
+    <div class="navbar">
+        <img src="https://i.ibb.co/XW6JGM8/Untitled-design-10.png" alt="DUaid Logo">
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#declaration">Declaration</a></li>
+            <li><a href="#work">Work With Us</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+    </div>
+
+    <!-- Fading Banner -->
+    <div class="banner-container">
+        <img src="https://i.ibb.co/7kbPY4R/1.png" alt="Banner 1" class="active">
+        <img src="https://i.ibb.co/TKP0r3q/2.png" alt="Banner 2">
+        <img src="https://i.ibb.co/6t5tpMg/3-2.png" alt="Banner 3">
+    </div>
+
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+        <h1>Welcome to DUaid!</h1>
+        <p>Your one-stop solution for all things related to Delhi University.</p>
+    </div>
+
+    <!-- Notice Board -->
+    <div class="notice-board">
+        <h2>Important Notices</h2>
+        <div class="notices">
+            <div>
+                <a href="https://www.example.com/notice1">Notice 1: Admissions Update</a><br>
+                <a href="https://www.example.com/notice2">Notice 2: Exam Schedule Released</a><br>
+                <a href="https://www.example.com/notice3">Notice 3: New Courses Available</a><br>
+                <a href="https://www.example.com/notice4">Notice 4: Placement Drive</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Continue Button -->
+    <a class="continue-btn" href="https://www.duaid.com">Continue to Website</a>
+
+    <!-- Footer with Social Media Icons -->
+    <footer>
+        <div class="social-icons">
+            <a href="mailto:someone@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/yourwhatsapplink" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/yourtelegramlink" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://www.instagram.com/yourinstagramlink" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const banners = document.querySelectorAll('.banner-container img');
+        const totalBanners = banners.length;
+
+        function showBanner(index) {
+            banners.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                }
+            });
+        }
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalBanners;
+            showBanner(currentIndex);
+        }, 5000); // Change every 5 seconds
+    </script>
+
+</body>
+</html>

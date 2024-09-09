@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Submissions - DUaid</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #660000;
+            color: #ffcccc;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #330000;
+        }
+
+        .header img {
+            height: 80px;
+            width: auto;
+        }
+
+        /* Body */
+        .test-body {
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffcccc;
+        }
+
+        /* Test Form */
+        .test-form {
+            max-width: 600px;
+            margin: 0 auto 50px;
+            background-color: #330000;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .test-form input[type="text"],
+        .test-form input[type="email"],
+        .test-form input[type="tel"],
+        .test-form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #330000;
+            color: #ffcccc;
+            border: 1px solid #ffcccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .test-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffcccc;
+            color: #330000;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .test-form button:hover {
+            background-color: #ff9999;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #330000;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: #ffcccc;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .social-icons a:hover {
+            color: #ff9999;
+        }
+
+        .social-icons a i {
+            font-size: 24px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .test-body {
+                padding: 20px;
+            }
+
+            .test-form input, .test-form button {
+                font-size: 14px;
+            }
+
+            .test-form button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Body with two forms -->
+    <div class="test-body">
+        <h1>Submit Your Tests</h1>
+
+        <!-- Sunday Test Form -->
+        <h2>Sunday Test</h2>
+        <div class="test-form">
+            <form action="https://formspree.io/f/xanwkzad" method="POST" enctype="multipart/form-data">
+                <label for="name-sunday">Name</label>
+                <input type="text" id="name-sunday" name="name" placeholder="Your name.." required>
+
+                <label for="email-sunday">Email</label>
+                <input type="email" id="email-sunday" name="email" placeholder="Your email.." required>
+
+                <label for="phone-sunday">Phone Number</label>
+                <input type="tel" id="phone-sunday" name="phone" placeholder="Your phone number.." required>
+
+                <label for="file-sunday">Submit File</label>
+                <input type="file" id="file-sunday" name="file" required>
+
+                <button type="submit">Submit Sunday Test</button>
+            </form>
+        </div>
+
+        <!-- Friday Test Form -->
+        <h2>Friday Test</h2>
+        <div class="test-form">
+            <form action="https://formspree.io/f/mldrvkao" method="POST" enctype="multipart/form-data">
+                <label for="name-friday">Name</label>
+                <input type="text" id="name-friday" name="name" placeholder="Your name.." required>
+
+                <label for="email-friday">Email</label>
+                <input type="email" id="email-friday" name="email" placeholder="Your email.." required>
+
+                <label for="phone-friday">Phone Number</label>
+                <input type="tel" id="phone-friday" name="phone" placeholder="Your phone number.." required>
+
+                <label for="file-friday">Submit File</label>
+                <input type="file" id="file-friday" name="file" required>
+
+                <button type="submit">Submit Friday Test</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

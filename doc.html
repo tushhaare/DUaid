@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF Viewer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,7 +22,7 @@
             margin: 0 auto;
         }
 
-        label, h2 {
+        h2 {
             color: #ffcccc;
         }
 
@@ -46,24 +45,9 @@
             height: 600px;
             border: none;
             margin-top: 20px;
-            display: none;
         }
 
-        /* Loading spinner style */
-        #loading {
-            display: none;
-            text-align: center;
-            font-size: 18px;
-            color: #ffffff;
-        }
-
-        /* Error message */
-        #errorMessage {
-            color: red;
-            display: none;
-        }
-
-        /* Responsive iframe */
+        /* Responsive iframe for mobile */
         @media only screen and (max-width: 600px) {
             iframe {
                 height: 400px;
@@ -80,55 +64,20 @@
         <div id="sections">
             <div class="section">
                 <h2>Section 1: Introduction</h2>
-                <p><i class="fas fa-file-pdf"></i> PDF 1: <a href="pdfs/course1/file1.pdf" target="pdfViewer">View PDF 1</a></p>
+                <iframe src="pdfs/course1/file1.pdf"></iframe>
             </div>
 
             <div class="section">
                 <h2>Section 2: Advanced Topics</h2>
-                <p><i class="fas fa-file-pdf"></i> PDF 2: <a href="pdfs/file2.pdf" target="pdfViewer">View PDF 2</a></p>
+                <iframe src="pdfs/file2.pdf"></iframe>
             </div>
 
             <div class="section">
                 <h2>Section 3: Further Reading</h2>
-                <p><i class="fas fa-file-pdf"></i> PDF 3: <a href="pdfs/file3.pdf" target="pdfViewer">View PDF 3</a></p>
+                <iframe src="pdfs/file3.pdf"></iframe>
             </div>
         </div>
-
-        <!-- PDF Viewer -->
-        <iframe id="pdfViewer" name="pdfViewer"></iframe>
-
-        <!-- Loading Spinner -->
-        <div id="loading">Loading...</div>
-
-        <!-- Error message -->
-        <p id="errorMessage">Error loading PDF. Please check the file path.</p>
     </div>
-
-    <!-- JavaScript to handle PDF viewing -->
-    <script>
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const pdfViewer = document.getElementById('pdfViewer');
-                const loading = document.getElementById('loading');
-                const errorMessage = document.getElementById('errorMessage');
-
-                pdfViewer.style.display = 'none'; // Hide the iframe initially
-                loading.style.display = 'block';  // Show loading spinner
-
-                // Load the PDF
-                pdfViewer.src = this.href;
-                pdfViewer.onload = function() {
-                    loading.style.display = 'none'; // Hide loading spinner
-                    pdfViewer.style.display = 'block'; // Show the iframe once loaded
-                };
-                pdfViewer.onerror = function() {
-                    loading.style.display = 'none';
-                    errorMessage.style.display = 'block';
-                };
-            });
-        });
-    </script>
 
 </body>
 </html>

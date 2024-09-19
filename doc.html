@@ -27,8 +27,18 @@
             color: #ffcccc;
         }
 
-        .folder {
+        .section {
             margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .section:nth-child(even) {
+            background-color: #800000;
+        }
+
+        .section:nth-child(odd) {
+            background-color: #990000;
         }
 
         iframe {
@@ -47,6 +57,12 @@
             color: #ffffff;
         }
 
+        /* Error message */
+        #errorMessage {
+            color: red;
+            display: none;
+        }
+
         /* Responsive iframe */
         @media only screen and (max-width: 600px) {
             iframe {
@@ -58,36 +74,23 @@
 <body>
 
     <div class="container">
-        <h1>Course PDF Viewer</h1>
+        <h1>PDF Viewer</h1>
 
-        <!-- Course Selection Dropdown -->
-        <label for="courseSelect">Select a Course:</label>
-        <select id="courseSelect" onchange="showFolders()">
-            <option value="">Select a course</option>
-            <option value="course1">Course 1</option>
-            <option value="course2">Course 2</option>
-        </select>
-
-        <!-- Folder and PDF Display Section -->
-        <div id="folders">
-            <h2>Available PDFs:</h2>
-
-            <!-- Manually list folders and files -->
-            <div class="folder" id="course1" style="display:none;">
-                <h3>Course 1</h3>
-                <p><i class="fas fa-folder"></i> <strong>Folder: Week 1</strong></p>
-                <p><i class="fas fa-file-pdf"></i> PDF 1: <a href="pdfs/course1/file1.pdf" target="pdfViewer">View PDF 1</a></p>
-                <p><i class="fas fa-file-pdf"></i> PDF 2: <a href="pdfs/course1/file2.pdf" target="pdfViewer">View PDF 2</a></p>
-
-                <p><i class="fas fa-folder"></i> <strong>Folder: Week 2</strong></p>
-                <p><i class="fas fa-file-pdf"></i> PDF 1: <a href="pdfs/course1/week2/file1.pdf" target="pdfViewer">View PDF 1 (Week 2)</a></p>
+        <!-- Sections with embedded PDFs -->
+        <div id="sections">
+            <div class="section">
+                <h2>Section 1: Introduction</h2>
+                <p><i class="fas fa-file-pdf"></i> PDF 1: <a href="pdfs/file1.pdf" target="pdfViewer">View PDF 1</a></p>
             </div>
 
-            <div class="folder" id="course2" style="display:none;">
-                <h3>Course 2</h3>
-                <p><i class="fas fa-folder"></i> <strong>Folder: Topic 1</strong></p>
-                <p><i class="fas fa-file-pdf"></i> PDF 1: <a href="pdfs/course2/file1.pdf" target="pdfViewer">View PDF 1</a></p>
-                <p><i class="fas fa-file-pdf"></i> PDF 2: <a href="pdfs/course2/file2.pdf" target="pdfViewer">View PDF 2</a></p>
+            <div class="section">
+                <h2>Section 2: Advanced Topics</h2>
+                <p><i class="fas fa-file-pdf"></i> PDF 2: <a href="pdfs/file2.pdf" target="pdfViewer">View PDF 2</a></p>
+            </div>
+
+            <div class="section">
+                <h2>Section 3: Further Reading</h2>
+                <p><i class="fas fa-file-pdf"></i> PDF 3: <a href="pdfs/file3.pdf" target="pdfViewer">View PDF 3</a></p>
             </div>
         </div>
 
@@ -98,28 +101,33 @@
         <div id="loading">Loading...</div>
 
         <!-- Error message -->
-        <p id="errorMessage" style="color: red; display: none;">Error loading PDF. Please check the file path.</p>
+        <p id="errorMessage">Error loading PDF. Please check the file path.</p>
     </div>
 
-    <!-- JavaScript for showing folders -->
+    <!-- JavaScript to handle PDF viewing -->
     <script>
-        function showFolders() {
-            var selectedCourse = document.getElementById('courseSelect').value;
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const pdfViewer = document.getElementById('pdfViewer');
+                const loading = document.getElementById('loading');
+                const errorMessage = document.getElementById('errorMessage');
 
-            // Hide all course folders initially
-            document.getElementById('course1').style.display = 'none';
-            document.getElementById('course2').style.display = 'none';
-            document.getElementById('pdfViewer').style.display = 'none'; // Hide viewer initially
-            document.getElementById('loading').style.display = 'none'; // Hide loading spinner
-            document.getElementById('errorMessage').style.display = 'none'; // Hide error message
+                pdfViewer.style.display = 'none'; // Hide the iframe initially
+                loading.style.display = 'block';  // Show loading spinner
 
-            // If a course is selected, show its folder
-            if (selectedCourse) {
-                document.getElementById(selectedCourse).style.display = 'block';
-            } else {
-                document.getElementById('folders').style.display = 'none'; // Hide folders if no course selected
-            }
-        }
+                // Load the PDF
+                pdfViewer.src = this.href;
+                pdfViewer.onload = function() {
+                    loading.style.display = 'none'; // Hide loading spinner
+                    pdfViewer.style.display = 'block'; // Show the iframe once loaded
+                };
+                pdfViewer.onerror = function() {
+                    loading.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                };
+            });
+        });
     </script>
 
 </body>

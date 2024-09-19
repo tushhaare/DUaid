@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF Viewer</title>
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -72,85 +71,54 @@
         <!-- Folder and PDF Display Section -->
         <div id="folders">
             <h2>Available PDFs:</h2>
+
+            <!-- Manually list folders and files -->
             <div class="folder" id="course1" style="display:none;">
-                <p><i class="fas fa-folder"></i> PDF 1: <a href="javascript:void(0);" onclick="viewPDF('pdfs/course1/file1.pdf')">View PDF 1</a></p>
-                <p><i class="fas fa-folder"></i> PDF 2: <a href="javascript:void(0);" onclick="viewPDF('pdfs/course1/file2.pdf')">View PDF 2</a></p>
+                <h3>Course 1</h3>
+                <p><i class="fas fa-folder"></i> <strong>Folder: Week 1</strong></p>
+                <p><i class="fas fa-file-pdf"></i> PDF 1: <a href="pdfs/course1/file1.pdf" target="pdfViewer">View PDF 1</a></p>
+                <p><i class="fas fa-file-pdf"></i> PDF 2: <a href="pdfs/course1/file2.pdf" target="pdfViewer">View PDF 2</a></p>
+
+                <p><i class="fas fa-folder"></i> <strong>Folder: Week 2</strong></p>
+                <p><i class="fas fa-file-pdf"></i> PDF 1: <a href="pdfs/course1/week2/file1.pdf" target="pdfViewer">View PDF 1 (Week 2)</a></p>
             </div>
+
             <div class="folder" id="course2" style="display:none;">
-                <p><i class="fas fa-folder"></i> PDF 1: <a href="javascript:void(0);" onclick="viewPDF('pdfs/course2/file1.pdf')">View PDF 1</a></p>
+                <h3>Course 2</h3>
+                <p><i class="fas fa-folder"></i> <strong>Folder: Topic 1</strong></p>
+                <p><i class="fas fa-file-pdf"></i> PDF 1: <a href="pdfs/course2/file1.pdf" target="pdfViewer">View PDF 1</a></p>
+                <p><i class="fas fa-file-pdf"></i> PDF 2: <a href="pdfs/course2/file2.pdf" target="pdfViewer">View PDF 2</a></p>
             </div>
         </div>
 
+        <!-- PDF Viewer -->
+        <iframe id="pdfViewer" name="pdfViewer"></iframe>
+
         <!-- Loading Spinner -->
         <div id="loading">Loading...</div>
-
-        <!-- Embedded PDF Viewer (PDF.js) -->
-        <canvas id="pdfCanvas" style="display:none;"></canvas>
 
         <!-- Error message -->
         <p id="errorMessage" style="color: red; display: none;">Error loading PDF. Please check the file path.</p>
     </div>
 
-    <!-- PDF.js Script -->
-    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <!-- JavaScript for showing folders -->
     <script>
-        var pdfDoc = null,
-            canvas = document.getElementById('pdfCanvas'),
-            ctx = canvas.getContext('2d');
-
-        // Show folders based on course selection
         function showFolders() {
             var selectedCourse = document.getElementById('courseSelect').value;
 
             // Hide all course folders initially
             document.getElementById('course1').style.display = 'none';
             document.getElementById('course2').style.display = 'none';
-            document.getElementById('pdfCanvas').style.display = 'none'; // Hide canvas initially
+            document.getElementById('pdfViewer').style.display = 'none'; // Hide viewer initially
             document.getElementById('loading').style.display = 'none'; // Hide loading spinner
             document.getElementById('errorMessage').style.display = 'none'; // Hide error message
 
             // If a course is selected, show its folder
             if (selectedCourse) {
-                document.getElementById('folders').style.display = 'block';
                 document.getElementById(selectedCourse).style.display = 'block';
             } else {
                 document.getElementById('folders').style.display = 'none'; // Hide folders if no course selected
             }
-        }
-
-        // Display selected PDF in the canvas using PDF.js
-        function viewPDF(filePath) {
-            document.getElementById('pdfCanvas').style.display = 'none'; // Hide canvas initially
-            document.getElementById('loading').style.display = 'block'; // Show loading spinner
-            document.getElementById('errorMessage').style.display = 'none'; // Hide error message
-
-            // Load the PDF using PDF.js
-            var loadingTask = pdfjsLib.getDocument(filePath);
-            loadingTask.promise.then(function(pdf) {
-                // Get the first page of the PDF
-                pdf.getPage(1).then(function(page) {
-                    var scale = 1.5;
-                    var viewport = page.getViewport({ scale: scale });
-
-                    // Adjust canvas size
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
-
-                    // Render the page into the canvas
-                    var renderContext = {
-                        canvasContext: ctx,
-                        viewport: viewport
-                    };
-                    var renderTask = page.render(renderContext);
-                    renderTask.promise.then(function() {
-                        document.getElementById('loading').style.display = 'none'; // Hide loading spinner
-                        document.getElementById('pdfCanvas').style.display = 'block'; // Show canvas with rendered PDF
-                    });
-                });
-            }).catch(function(error) {
-                document.getElementById('loading').style.display = 'none'; // Hide loading spinner
-                document.getElementById('errorMessage').style.display = 'block'; // Show error message
-            });
         }
     </script>
 

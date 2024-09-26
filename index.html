@@ -19,7 +19,7 @@
             box-sizing: border-box;
         }
 
-       /* Navbar */
+        /* Navbar */
         .navbar {
             background-color: #660000;
             padding: 10px 20px;
@@ -28,11 +28,7 @@
             align-items: center;
         }
 
-        .navbar .logo img {
-            height: 10px;
-        }
-        
-        .logo {
+        .logo img {
             max-width: 150px; /* Adjust this value to resize the logo */
             height: auto; /* Maintain aspect ratio */
         }
@@ -345,7 +341,9 @@
 
     <!-- Navigation Menu with Logo and Hamburger -->
     <div class="navbar">
-        <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid Logo">
+        <div class="logo"> <!-- Add a wrapper for the logo -->
+            <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid Logo">
+        </div>
         <ul class="desktop">
             <li><a href="about.html">About</a></li>
             <li><a href="contact">Contact</a></li>
@@ -363,89 +361,89 @@
         </ul>
     </div>
 
-    <!-- Fading Banner -->
+    <!-- Slideshow Banner -->
     <div class="banner-container">
-        <img src="https://i.imghippo.com/files/Jqf3B1725804629.png" alt="Banner 1" class="active">
-        <img src="https://i.imghippo.com/files/VkmbP1725804708.png" alt="Banner 2">
-        <img src="https://i.imghippo.com/files/OEOox1725804740.png" alt="Banner 3">
+        <img src="banner1.jpg" alt="Banner 1" class="active">
+        <img src="banner2.jpg" alt="Banner 2">
+        <img src="banner3.jpg" alt="Banner 3">
     </div>
 
     <!-- Welcome Message -->
     <div class="welcome-message">
-        <h1>Welcome to DUaid!</h1>
-        <p>Your one-stop solution for all things related to Delhi University.</p>
+        <h1>WELCOME to DUaid</h1>
+        <p>Your hub for Delhi University study resources.</p>
     </div>
 
     <!-- Notice Board -->
     <div class="notice-board">
-        <h2>Important Notices</h2>
+        <h2>Notices</h2>
         <div class="notices">
             <div>
-                <a href="notices/NOTIFICATION_20240905_082506_0000.pdf">Notice regarding Website Development (Dated : 05-09-2024)</a><br>
-                <a href="#">Notice 2: SAMPLE</a><br>
-                <a href="#">Notice 3: SAMPLE</a><br>
-                <a href="#">Notice 4: SAMPLE</a>
+                <a href="#">Notice 1: Important announcement!</a>
+            </div>
+            <div>
+                <a href="#">Notice 2: Upcoming events.</a>
             </div>
         </div>
     </div>
 
     <!-- Continue Button -->
-    <a class="continue-btn" href="https://tushhaare.github.io/DUaid/home">Continue to Website</a>
+    <a href="resources.html" class="continue-btn">Continue to Website</a>
 
-    <!-- Customer Reviews Section -->
+    <!-- Review Section -->
     <div class="review-section">
-        <h2>What our Users Say</h2>
+        <h2>Customer Reviews</h2>
         <div class="review-container">
-            <div class="review-text active">"DUaid is incredibly helpful! I found all the materials I needed." - Aditi</div>
-            <div class="review-text">"Best platform for DU students. Super organized and easy to navigate." - Rohan</div>
-            <div class="review-text">"Thanks to DUaid, I aced my exams. Highly recommended!" - Priya</div>
-            <div class="review-text">"A must-have resource for every DU student!" - Akshay</div>
-            <div class="review-text">"I love the clean design and easy access to materials." - Meera</div>
-            <div class="review-text">"The most reliable platform for study resources and updates." - Kunal</div>
-            <div class="review-text">"Perfect for exam preparation. DUaid has everything." - Shreya</div>
-            <div class="review-text">"User-friendly and comprehensive, just what I needed!" - Tanvi</div>
-            <div class="review-text">"DUaid is a lifesaver for quick access to notes and PYQs!" - Harsh</div>
+            <div class="review-text active">"Great resource hub!"</div>
+            <div class="review-text">"Very helpful for students!"</div>
+            <div class="review-text">"Loved the materials provided!"</div>
+            <div class="review-text">"Highly recommend DUaid!"</div>
+            <div class="review-text">"Excellent support and guidance!"</div>
         </div>
     </div>
 
-    <!-- Footer with social icons -->
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/CUETbyNTA"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://telegram.me/CUETbyNTA_2024"><i class="fab fa-telegram-plane"></i></a>
-            <a href="mailto:"><i class="fas fa-envelope"></i></a>
-        </div>
+        <p>&copy; 2024 DUaid. All rights reserved.</p>
     </footer>
 
     <script>
-        // Fading banner logic
-        let bannerIndex = 0;
-        const banners = document.querySelectorAll('.banner-container img');
-        const reviews = document.querySelectorAll('.review-container div');
-
-        function fadeBanners() {
-            banners[bannerIndex].classList.remove('active');
-            bannerIndex = (bannerIndex + 1) % banners.length;
-            banners[bannerIndex].classList.add('active');
-        }
-
-        function fadeReviews() {
-            reviews[reviewIndex].classList.remove('active');
-            reviewIndex = (reviewIndex + 1) % reviews.length;
-            reviews[reviewIndex].classList.add('active');
-        }
-
-        setInterval(fadeBanners, 5000); // Change banner every 5 seconds
-        let reviewIndex = 0;
-        setInterval(fadeReviews, 4000); // Change review every 4 seconds
-
-        // Mobile menu toggle
         function toggleMenu() {
-            const menu = document.querySelector('.navbar ul.mobile');
-            menu.classList.toggle('active');
+            const mobileMenu = document.querySelector('.navbar ul.mobile');
+            mobileMenu.classList.toggle('active');
         }
-    </script>
 
+        // Slideshow script
+        const slides = document.querySelectorAll('.banner-container img');
+        let currentSlide = 0;
+
+        function showNextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 5000); // Change slide every 5 seconds
+
+        // Review rotation
+        const reviews = document.querySelectorAll('.review-text');
+        let currentReview = 0;
+
+        function showNextReview() {
+            reviews[currentReview].classList.remove('active');
+            currentReview = (currentReview + 1) % reviews.length;
+            reviews[currentReview].classList.add('active');
+        }
+
+        setInterval(showNextReview, 3000); // Change review every 3 seconds
+    </script>
 </body>
 </html>

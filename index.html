@@ -19,7 +19,7 @@
             box-sizing: border-box;
         }
 
-        /* Navbar */
+       /* Navbar */
         .navbar {
             background-color: #660000;
             padding: 10px 20px;
@@ -28,7 +28,11 @@
             align-items: center;
         }
 
-        .logo img {
+        .navbar .logo img {
+            height: 10px;
+        }
+        
+        .logo {
             max-width: 150px; /* Adjust this value to resize the logo */
             height: auto; /* Maintain aspect ratio */
         }
@@ -97,25 +101,27 @@
             max-width: 100%;
             height: auto;
             overflow: hidden;
+            min-height: 300px; /* Minimum height for responsive design */
         }
 
         .banner-container img {
             width: 100%;
             height: auto;
-            max-height: 400px; /* Adjust max height for mobile screens */
             object-fit: cover;
+            transition: opacity 1s ease-in-out; /* Added fade effect */
         }
 
         .banner-container img.active {
-            display: block;
+            opacity: 1;
         }
 
         .banner-container img {
-            display: none;
+            opacity: 0; /* Hide all images initially */
         }
 
         .banner-container img:first-child {
             display: block;
+            opacity: 1; /* Show first image */
         }
 
         /* Welcome Text */
@@ -159,7 +165,7 @@
             font-size: 24px;
             text-decoration: none;
         }
-    
+
         /* Hamburger Menu */
         .hamburger {
             display: none;
@@ -183,47 +189,6 @@
             text-align: center;
             padding: 10px 0;
             margin: 0;
-        }
-
-        /* Fading banner */
-        .banner-container {
-            width: 100%;
-            min-height: 300px; /* Adjust this to reduce height */
-            position: relative;
-            overflow: hidden;
-            z-index: 1; /* Ensure the banner is behind the navbar */
-            margin-bottom: -10px; /* Minimize the gap */
-        }
-
-        .banner-container img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
-
-        .banner-container img.active {
-            opacity: 1;
-        }
-
-        /* Welcome message */
-        .welcome-message {
-            text-align: center;
-            padding: 10px; /* Reduce padding */
-            font-size: 1.4rem;
-            margin-bottom: 10px; /* Minimize the gap */
-        }
-
-        .welcome-message h1 {
-            margin: 0;
-            color: #ff9999;
-        }
-
-        .welcome-message p {
-            margin: 5px 0 0;
-            font-size: 1.2rem;
         }
 
         /* Notice board */
@@ -257,6 +222,8 @@
         .notices div a {
             color: #ffcccc;
             text-decoration: none;
+            margin: 5px 0; /* Space between notices */
+            display: block; /* Ensure each notice is on a new line */
         }
 
         @keyframes scroll {
@@ -319,6 +286,12 @@
             background-color: #330000;
             padding: 15px 0;
             text-align: center;
+            opacity: 0; /* Start hidden */
+            transition: opacity 1s ease-in-out; /* Fade effect */
+        }
+
+        footer.active {
+            opacity: 1; /* Fade in when active */
         }
 
         .social-icons a {
@@ -341,9 +314,7 @@
 
     <!-- Navigation Menu with Logo and Hamburger -->
     <div class="navbar">
-        <div class="logo"> <!-- Add a wrapper for the logo -->
-            <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid Logo">
-        </div>
+        <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid Logo" class="logo">
         <ul class="desktop">
             <li><a href="about.html">About</a></li>
             <li><a href="contact">Contact</a></li>
@@ -361,89 +332,87 @@
         </ul>
     </div>
 
-    <!-- Slideshow Banner -->
+    <!-- Fading Banner -->
     <div class="banner-container">
-        <img src="banner1.jpg" alt="Banner 1" class="active">
-        <img src="banner2.jpg" alt="Banner 2">
-        <img src="banner3.jpg" alt="Banner 3">
+        <img src="https://example.com/banner1.jpg" alt="Banner Image 1" class="active">
+        <img src="https://example.com/banner2.jpg" alt="Banner Image 2">
+        <img src="https://example.com/banner3.jpg" alt="Banner Image 3">
     </div>
 
-    <!-- Welcome Message -->
-    <div class="welcome-message">
+    <div class="welcome-text">
         <h1>WELCOME to DUaid</h1>
-        <p>Your hub for Delhi University study resources.</p>
     </div>
 
     <!-- Notice Board -->
     <div class="notice-board">
-        <h2>Notices</h2>
+        <h2>Latest Notices</h2>
         <div class="notices">
             <div>
-                <a href="#">Notice 1: Important announcement!</a>
-            </div>
-            <div>
-                <a href="#">Notice 2: Upcoming events.</a>
+                <a href="#">Notice 1: Important updates for students.</a>
+                <a href="#">Notice 2: New syllabus released.</a>
+                <a href="#">Notice 3: Exam schedule announced.</a>
+                <a href="#">Notice 4: Registration deadline extended.</a>
+                <a href="#">Notice 5: Workshop on research methods.</a>
             </div>
         </div>
     </div>
 
-    <!-- Continue Button -->
-    <a href="resources.html" class="continue-btn">Continue to Website</a>
+    <!-- Continue to Website Button -->
+    <a href="homepage.html" class="continue-btn">Continue to Website</a>
 
     <!-- Review Section -->
     <div class="review-section">
-        <h2>Customer Reviews</h2>
+        <h2>What Our Users Say</h2>
         <div class="review-container">
-            <div class="review-text active">"Great resource hub!"</div>
-            <div class="review-text">"Very helpful for students!"</div>
-            <div class="review-text">"Loved the materials provided!"</div>
-            <div class="review-text">"Highly recommend DUaid!"</div>
-            <div class="review-text">"Excellent support and guidance!"</div>
+            <div class="review-text active">"DUaid has transformed my study experience!"</div>
+            <div class="review-text">"A one-stop solution for all my academic needs."</div>
+            <div class="review-text">"The resources available here are top-notch!"</div>
+            <div class="review-text">"Incredibly helpful for managing my time and studies."</div>
+            <div class="review-text">"Highly recommend DUaid for all students!"</div>
+            <div class="review-text">"The team is very supportive and responsive!"</div>
         </div>
     </div>
 
-    <!-- Social Media Icons -->
-    <div class="social-icons">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
-        <a href="#"><i class="fab fa-telegram"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-    </div>
-
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 DUaid. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2024 DUaid. All Rights Reserved.</p>
     </footer>
 
     <script>
+        // Hamburger Menu Toggle
         function toggleMenu() {
-            const mobileMenu = document.querySelector('.navbar ul.mobile');
-            mobileMenu.classList.toggle('active');
+            const menu = document.querySelector('.navbar ul.mobile');
+            menu.classList.toggle('active');
         }
 
-        // Slideshow script
+        // Fading Banner Logic
+        let currentIndex = 0;
         const slides = document.querySelectorAll('.banner-container img');
-        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }, 3000); // Change slide every 3 seconds
 
-        function showNextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        setInterval(showNextSlide, 5000); // Change slide every 5 seconds
-
-        // Review rotation
+        // Review Section Logic
+        let reviewIndex = 0;
         const reviews = document.querySelectorAll('.review-text');
-        let currentReview = 0;
+        setInterval(() => {
+            reviews[reviewIndex].classList.remove('active');
+            reviewIndex = (reviewIndex + 1) % reviews.length;
+            reviews[reviewIndex].classList.add('active');
+        }, 5000); // Change review every 5 seconds
 
-        function showNextReview() {
-            reviews[currentReview].classList.remove('active');
-            currentReview = (currentReview + 1) % reviews.length;
-            reviews[currentReview].classList.add('active');
-        }
-
-        setInterval(showNextReview, 3000); // Change review every 3 seconds
+        // Fade in Footer on Load
+        window.onload = function() {
+            document.querySelector('footer').classList.add('active');
+        };
     </script>
 </body>
 </html>

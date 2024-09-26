@@ -19,83 +19,146 @@
             box-sizing: border-box;
         }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Ensures vertical alignment */
-    background-color: #330000;
-    padding: 15px 30px;
-    position: relative;
-    z-index: 10;
-}
+       /* Navbar */
+        .navbar {
+            background-color: #660000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.navbar img {
-    height: 60px; /* Adjust logo height for better quality */
-    width: auto;
-}
+        .navbar .logo img {
+            height: 40px;
+        }
 
-.navbar ul.desktop {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        .navbar ul {
+            list-style-type: none;
+        }
 
-.navbar ul.desktop li {
-    margin-left: 20px;
-}
+        .navbar ul.mobile {
+            display: none;
+        }
 
-.navbar ul.desktop li a {
-    color: #ffcccc;
-    text-decoration: none;
-    font-weight: bold;
-}
+        .navbar ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
 
-.navbar ul.desktop li a:hover {
-    color: #ff9999;
-}
+        .navbar ul li a {
+            color: #ffcccc;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-.hamburger {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #ffcccc;
-}
+        .navbar .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffcccc;
+        }
 
-@media (max-width: 768px) {
-    .navbar ul.desktop {
-        display: none; /* Hide desktop menu on mobile */
-    }
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
 
-    .hamburger {
-        display: block;
-    }
+            .navbar ul.mobile {
+                display: block;
+                position: absolute;
+                background-color: #660000;
+                top: 60px;
+                left: 0;
+                right: 0;
+                text-align: center;
+                padding: 10px;
+                display: none;
+            }
+
+            .navbar ul.mobile li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .navbar .hamburger {
+                display: block;
+            }
+
+            .navbar ul.mobile.active {
+                display: block;
+            }
+        }
+
+        /* Top Slideshow */
+        .banner-container {
+            position: relative;
+            max-width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            max-height: 400px; /* Adjust max height for mobile screens */
+            object-fit: cover;
+        }
+
+        .banner-container img.active {
+            display: block;
+        }
+
+        .banner-container img {
+            display: none;
+        }
+
+        .banner-container img:first-child {
+            display: block;
+        }
+
+        /* Welcome Text */
+        .welcome-text {
+            text-align: center;
+            margin-top: 10px; /* Reduced margin for less gap */
+        }
+
+        /* Reviews Section */
+        .review-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .review-container {
+            position: relative;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .review-text {
+            display: none;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .review-text.active {
+            display: block;
+        }
+
+        /* Footer Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .social-icons a {
+            color: #ffcccc;
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+        }
     
-    .navbar ul.mobile {
-        display: none; /* Initially hide the mobile menu */
-    }
-
-    .navbar ul.mobile.active {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-/* Mobile Menu */
-.navbar ul.mobile li a {
-    color: #ffcccc; /* Light color for the mobile menu links */
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-
-.navbar ul.mobile li a:hover {
-    background-color: #ff9999; /* Lighter background on hover */
-    color: #330000; /* Dark text color on hover */
-    border-radius: 5px;
-}
-
         /* Hamburger Menu */
         .hamburger {
             display: none;
@@ -313,7 +376,7 @@
         <h2>Important Notices</h2>
         <div class="notices">
             <div>
-                <a href="https://drive.google.com/uc?export=download&id=1pF8UtYhEb7H_ZhNlXS_aYvp-sfeTVrlJ">Notice regarding Website Development (Dated : 05-09-2024)</a><br>
+                <a href="notices/NOTIFICATION_20240905_082506_0000.pdf">Notice regarding Website Development (Dated : 05-09-2024)</a><br>
                 <a href="#">Notice 2: SAMPLE</a><br>
                 <a href="#">Notice 3: SAMPLE</a><br>
                 <a href="#">Notice 4: SAMPLE</a>
@@ -343,9 +406,9 @@
     <!-- Footer with social icons -->
     <footer>
         <div class="social-icons">
-            <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/CUETbyNTA"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://telegram.me/"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://telegram.me/CUETbyNTA_2024"><i class="fab fa-telegram-plane"></i></a>
             <a href="mailto:"><i class="fas fa-envelope"></i></a>
         </div>
     </footer>

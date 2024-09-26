@@ -98,30 +98,24 @@
         /* Top Slideshow */
         .banner-container {
             position: relative;
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            min-height: 300px; /* Adjust for both mobile and desktop */
             overflow: hidden;
-            min-height: 300px; /* Minimum height for responsive design */
+            z-index: 1; /* Ensure the banner is behind the navbar */
+            margin-bottom: -10px; /* Minimize the gap */
         }
 
         .banner-container img {
+            position: absolute;
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
-            transition: opacity 1s ease-in-out; /* Added fade effect */
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
         }
 
         .banner-container img.active {
             opacity: 1;
-        }
-
-        .banner-container img {
-            opacity: 0; /* Hide all images initially */
-        }
-
-        .banner-container img:first-child {
-            display: block;
-            opacity: 1; /* Show first image */
         }
 
         /* Welcome Text */

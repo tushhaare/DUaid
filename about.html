@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    color: #ffcccc;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.social-media a:hover {
+    color: #ffffff;
+}
+
+.social-media i {
+    vertical-align: middle;
+}
+        body {
+            background-color: #660000;
+            color: #ffcccc;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: #660000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        .text-content {
+            max-width: 60%;
+            text-align: left;
+        }
+
+        .text-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffcccc;
+        }
+
+        .text-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #ffcccc;
+        }
+
+        .text-content a {
+            color: #ffcccc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .text-content a:hover {
+            text-decoration: underline;
+        }
+
+        #more-info {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .photo-container {
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .photo-container img {
+            height: 100%;
+            max-height: 600px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            background-color: #ffcccc;
+            color: #660000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #ffcccc;
+            opacity: 0.8;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .text-content, .photo-container {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .photo-container img {
+                width: 100%;
+                height: auto;
+                max-height: none;
+            }
+
+            .text-content h1 {
+                font-size: 2em;
+            }
+
+            .text-content p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+    <script>
+        function toggleInfo() {
+            var moreInfo = document.getElementById('more-info');
+            if (moreInfo.style.display === 'none') {
+                moreInfo.style.display = 'block';
+            } else {
+                moreInfo.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid Logo" class="logo">
+        <ul class="desktop">
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="declaration.html">Declaration</a></li>
+            <li><a href="work.html">Work With Us</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+        <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+        <ul class="mobile">
+            <li><a href="about.html.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="declaration.html">Declaration</a></li>
+            <li><a href="work.html">Work With Us</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="text-content">
+            <h1>About Us</h1>
+            <p>
+                DUaid is a dedicated platform created for students, especially those enrolled in undergraduate courses at the University of Delhi. Our goal is to provide easily accessible academic resources to support students in their academic journey, regardless of their background or challenges.
+</br>
+In a competitive academic environment like Delhi University, students often find themselves struggling to access the right study materials, previous year question papers, and up-to-date syllabi. This platform is designed to bridge that gap, ensuring that students, especially those who may not have access to well-stocked libraries or personal resources, can still excel.
+</br>
+We believe that education should be inclusive and accessible to all. DUaid takes a special initiative to support students from various backgrounds, including Hindi medium students and those facing physical challenges such as visual impairments. Our platform offers a wide range of resources in both English and Hindi, ensuring that language is never a barrier to learning.
+</br>
+The DUaid initiative run by student volunteers, is driven by a spirit of collaboration and empathy. Our team works tirelessly to provide timely and relevant content, carefully curated to help students prepare for their exams and assignments. We follow the University of Delhi syllabus, but our resources are valuable for students from other universities as well.
+</br>
+DUaid thrives because of a devoted team of volunteers who work behind the scenes to make this platform a reality. Our heartfelt thanks to the students who balance their academic responsibilities while contributing their time and energy to this initiative.
+</br>
+Together, we are building a community where education is shared freely, and every student can reach their full potential. Thank you for being a part of this journey.
+</br>
+</br>
+        </br>
+            </p>
+            </div>
+        </div>
+           </p>     <strong>INITIATIVE BY</strong><br>TUSHAR (Owner, DUaid)<br>
+                Pursuing B.A. (Hons.) History<br>
+                at A.R.S.D. College<br>
+                (University of Delhi)
+            </div>
+        </div>
+    </div>
+        <div class="social-media">
+        <a href="https://whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/RealDUaid" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://instagram.com/cuetbynta" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:cuetbynta@yahoo.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
+</body>
+</html>

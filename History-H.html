@@ -5,18 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Resources - DUaid</title>
     <style>
-/* Style for the loading screen */
-#loading-screen {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: #ffcccc; /* Change the color to match your website */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
 /* Initially hide the main content */
 #main-content {
     display: none;
@@ -86,21 +74,9 @@
                 iframe.style.display = "block";
             }, Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000); // Random between 1-3 seconds
         }
-// JavaScript to hide the loading screen after a defined time (3 seconds in this example)
-window.onload = function() {
-    setTimeout(function() {
-        document.getElementById("loading-screen").style.display = "none";
-        document.getElementById("main-content").style.display = "block";
-    }, 1000); // 1000 milliseconds = 3 seconds
-};
     </script>
 </head>
 <body>
-
-<!-- Loading Screen -->
-<div id="loading-screen">
-    <img src="https://media.tenor.com/JwPW0tw69vAAAAAi/cargando-loading.gif" alt="Loading...">
-</div>
 
     <div class="container">
         <img src="https://i.ibb.co/NKjF3Jz/20240901-181658-0000.png" alt="DUaid Logo" style="width:150px;">
@@ -132,6 +108,14 @@ window.onload = function() {
         <div id="loadingMessage">Loading, please wait...</div>
         <iframe id="driveFrame"></iframe>
     </div>
+        <!-- Footer Section -->
+        <footer>
+            <div class="social-icons">
+                <a href="https://instagram.com/cuetbynta"><i class="fab fa-instagram"></i></a>
+                <a href="https://whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/RealDUaid"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:cuetbynta@yahoo.com"><i class="fas fa-envelope"></i></a>
+            </div>
 </p1> Last Updated on 28-09-2024 13:40:31  </p1> </br>
 </div>
 </br>

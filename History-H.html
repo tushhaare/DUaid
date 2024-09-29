@@ -5,6 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Resources - DUaid</title>
     <style>
+
+/* Navbar Styling */
+.navbar {
+    background-color: #ffcccc; /* Background color */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffcccc;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #660000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #660000;
+    font-size: 18px;
+    transition: color 0.5s;
+}
+
+.nav-links a:hover {
+    color: #cc0000;
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.menu-icon span {
+    background-color: #660000;
+    width: 25px;
+    height: 3px;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #ffcccc;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+}
         /* Style for the popup background overlay */
         .popup-overlay {
             position: fixed;
@@ -16,39 +95,6 @@
             display: none;
             justify-content: center;
             align-items: center;
-        }
-
-        /* Style for the popup content */
-        .popup-content {
-            background: #fff;
-            padding: 20px;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        /* Style for close button */
-        .close-btn {
-            cursor: pointer;
-            background: #660000;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        /* Style for the notice links */
-        .notice-links a {
-            display: block;
-            margin: 10px 0;
-            color: #660000;
-            text-decoration: none;
-        }
-
-        .notice-links a:hover {
-            text-decoration: underline;
         }
 
         /* Initially hide the main content */
@@ -107,6 +153,10 @@
         }
     </style>
     <script>
+        function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
         function showContent() {
             const loadingMessage = document.getElementById("loadingMessage");
             const iframe = document.getElementById("driveFrame");
@@ -136,21 +186,27 @@
                 document.getElementById("popup").style.display = "none";
             };
         };
+    
     </script>
 </head>
 <body>
-    <!-- Popup Overlay -->
-    <div class="popup-overlay" id="popup">
-        <div class="popup-content">
-            <h2>This site is currently under development.</h2>
-            <div class="notice-links">
-                <a href="https://duaid.pages.dev/about" target="_blank">About Us</a>
-                <a href="https://duaid.pages.dev/declaration" target="_blank">Declaration</a>
-                <a href="https://drive.google.com/drive/folders/1EKweoSGZIubsxEO5RjM95cODnsvpQRSX?usp=drive_link" target="_blank">Common Readings (All Semesters)</a>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar">
             </div>
-            <button class="close-btn" id="closePopup">Close</button>
-        </div>
-    </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="https://drive.google.com/drive/folders/1EKweoSGZIubsxEO5RjM95cODnsvpQRSX?usp=drive_link">Common Readings (All Semesters)</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/declaration">Declaration</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
 
     <div class="container">
         <img src="https://i.ibb.co/NKjF3Jz/20240901-181658-0000.png" alt="DUaid Logo" style="width:150px;">

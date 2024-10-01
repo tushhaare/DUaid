@@ -1,0 +1,14 @@
+/* Background color for the custom card */
+.card-custom1 {
+    background-color: #f0f0f0; /* Your desired background color */
+}
+
+/* Text color for headers */
+.card-custom1 h3 {
+    color: #333333; /* Your desired text color for headers */
+}
+
+/* Text color for paragraphs */
+.card-custom1 p {
+    color: #000000; /* Your desired text color for paragraphs */
+}

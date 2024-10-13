@@ -152,45 +152,7 @@
             margin-top: 20px;
         }
     </style>
-    <script>
-        function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('active');
-}
-        function showContent() {
-            const loadingMessage = document.getElementById("loadingMessage");
-            const iframe = document.getElementById("driveFrame");
-            const select = document.getElementById("paperSelect");
-
-            if (select.value === "") {
-                alert("Please select a paper.");
-                return;
-            }
-
-            loadingMessage.style.display = "block";
-            iframe.style.display = "none";
-
-            setTimeout(() => {
-                loadingMessage.style.display = "none";
-                iframe.src = select.value;
-                iframe.style.display = "block";
-            }, Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000); // Random between 1-3 seconds
-        }
-
-        window.onload = function () {
-            // Show the popup when the page loads
-            document.getElementById("popup").style.display = "flex";
-
-            // Close the popup when the close button is clicked
-            document.getElementById("closePopup").onclick = function () {
-                document.getElementById("popup").style.display = "none";
-            };
-        };
-    
-    </script>
 </head>
-<body>
-
     <body>
         <!-- Navbar -->
         <nav class="navbar">
@@ -210,6 +172,51 @@
                 <span></span>
             </div>
         </nav>
+<!-- Popup Notice -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-content">
+        <span id="closePopup" style="cursor: pointer; font-size: 24px; color: #660000; position: absolute; top: 02px; right: 05px;">&times;</span>
+        <img src="https://i.ibb.co/999b7xB/1.png" alt="Notice Image" style="width: 300px; height: auto; border-radius: 05px;">
+        <p style="color: black margin-top: 10px;">NEW UPDATE IS OUT!</p>
+    </div>
+</div>
+
+<style>
+    /* Style for the popup background overlay */
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    /* Style for the popup content */
+    .popup-content {
+        position: relative;
+        background: #ffcccc;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+</style>
+
+<script>
+    // Close the popup when the close button is clicked
+    document.getElementById("closePopup").onclick = function () {
+        document.getElementById("popup").style.display = "none";
+    };
+
+    // Automatically show the popup when the page loads
+    window.onload = function () {
+        document.getElementById("popup").style.display = "flex";
+    };
+</script>
 
     <div class="container">
         <img src="https://i.ibb.co/NKjF3Jz/20240901-181658-0000.png" alt="DUaid Logo" style="width:150px;">

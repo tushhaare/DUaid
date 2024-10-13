@@ -84,28 +84,73 @@
         display: flex;
     }
 }
-/* Style for the popup background overlay */
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: none; /* Keep it hidden initially */
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
+        /* Style for the popup background overlay */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* Style for the popup content */
-.popup-content {
-    position: relative;
-    background: #660000;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
+        /* Initially hide the main content */
+        #main-content {
+            display: none;
+        }
+
+        body {
+            background-color: #ffcccc;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #660000;
+        }
+
+        select, button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #660000;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: grey;
+            color: white;
+            cursor: pointer;
+        }
+
+        iframe {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        #loadingMessage {
+            display: none;
+            font-size: 18px;
+            color: #660000;
+            margin-top: 20px;
+        }
     </style>
 </head>
     <body>
@@ -135,6 +180,31 @@
         <p style="color: black margin-top: 10px;">NEW UPDATE IS OUT!</p>
     </div>
 </div>
+
+<style>
+    /* Style for the popup background overlay */
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    /* Style for the popup content */
+    .popup-content {
+        position: relative;
+        background: #ffcccc;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+</style>
 
 <script>
     // Close the popup when the close button is clicked

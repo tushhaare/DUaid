@@ -246,7 +246,7 @@
             <option value="https://duaid.pages.dev/main">History of Modern Europe - II</option>
             <!-- Add more options here -->
         </select>
-        <button onclick="showContent()">Go</button>
+        <button id="goButton">Go</button>
         <div id="loadingMessage">Loading, please wait...</div>
         <iframe id="driveFrame"></iframe>
     </div>
@@ -261,5 +261,29 @@
         </div>
         <p>Last Updated on 13-09-2024 09:11 PM</p>
             <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1241121/t/2"></script>
-</body>
+<script>
+    document.getElementById("goButton").addEventListener("click", showContent);
+
+    function showContent() {
+        const paperSelect = document.getElementById("paperSelect").value;
+        const driveFrame = document.getElementById("driveFrame");
+        const loadingMessage = document.getElementById("loadingMessage");
+
+        if (paperSelect === "") {
+            alert("Please select a paper.");
+        } else {
+            // Show loading message and hide the iframe while loading
+            loadingMessage.style.display = "block";
+            driveFrame.style.display = "none";
+
+            // Simulate loading and set iframe source
+            setTimeout(() => {
+                loadingMessage.style.display = "none";
+                driveFrame.src = paperSelect;
+                driveFrame.style.display = "block";
+            }, 500); // Simulated delay (500ms)
+        }
+    }
+</script>
+    </body>
 </html>

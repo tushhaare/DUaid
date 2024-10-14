@@ -61,19 +61,19 @@
 
 /* Responsive Navbar */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #ffcccc;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 1;
-    }
+.nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffcccc;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1;
+}
 
-    .nav-links.active {
-        display: flex;
+.nav-links.active {
+    display: flex;
     }
 
     .nav-links li {
@@ -167,11 +167,17 @@
                 <li><a href="/feedback">Feedback</a></li>
 
             </ul>
-            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+<div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<script>
+    function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
+</script>
         </nav>
 <!-- Popup Notice -->
 <div id="popup" class="popup-overlay">
@@ -259,7 +265,7 @@
             <a href="https://t.me/RealDUaid"><i class="fab fa-telegram"></i></a>
             <a href="mailto:cuetbynta@yahoo.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>Last Updated on 13-09-2024 09:11 PM</p>
+        <p>Last Updated on 14-10-2024 07:08 AM</p>
             <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1241121/t/2"></script>
 <script>
     document.getElementById("goButton").addEventListener("click", showContent);

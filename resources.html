@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUaid - Resources</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <link href="/navbarres.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh; /* Full height of viewport */
+            display: flex; /* Enable flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            background-color: #f0f0f0; /* Optional: Background color */
+        }
+
+        #counter-container {
+            text-align: center; /* Ensures internal alignment of generated content */
+        }
+/* Container for the floating button */
+#floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* Style for the refresh button */
+#refresh-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for refresh button */
+#refresh-button:hover {
+    background-color: #3e8e41;
+    transform: scale(1.1);
+}
+
+/* Style for the close button */
+#close-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for close button */
+#close-button:hover {
+    background-color: #d32f2f;
+    transform: scale(1.1);
+}
+        a { color: white; }
+        p { color: white; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #ffcccc;
+        }
+        .container {
+    margin: 0 auto; /* Centers horizontally */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers vertically and horizontally */
+}
+        h1 {
+            color: #660000;
+        }
+        select, button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #660000;
+            border-radius: 5px;
+        }
+        button {
+            background-color: grey;
+            color: white;
+            cursor: pointer;
+        }
+        iframe {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        #loadingMessage {
+            display: none;
+            font-size: 18px;
+            color: #660000;
+            margin-top: 20px;
+    
+        }
+        p {
+            color: rgb(0, 0, 0);
+            font-size: 14px; /* Optional: Adjust font size */
+            margin: 20px;
+            margin: 0; /* Remove default margin */
+            height: 100vh; /* Make the body height full screen */
+            display: flex; /* Enable flexbox for alignment */
+            justify-content: center; /* Center horizontally */
+            align-items: flex-end; /* Align at the bottom */
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="floating-button">
+    <button id="refresh-button">↻</button>
+    <button id="close-button">X</button>
+</div>
+    <div id="nav">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid" width="100px" class="center">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/resources">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about" target="_blank">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/declaration" target="_blank">Declaration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/work" target="_blank">Work with Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/feedback" target="_blank">Feedback</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container" style="margin-top: 80px;">
+        <h1>DUaid - Resources</h1>
+        <div class="dropdown">
+            <label for="type">Select Paper Type:</label>
+            <select id="type" onchange="loadPapers()">
+                <option value="">--Select Type--</option>
+                <option value="GE">GE</option>
+                <option value="AEC">AEC (Coming Soon)</option>
+                <option value="SEC">SEC (Coming Soon)</option>
+                <option value="VAC">VAC (Coming Soon)</option>
+            </select>
+        </div>
+        <div class="dropdown" id="paperDropdown" style="display: none;">
+            <label for="paper">Select Paper:</label>
+            <select id="paper">
+                <option value="">--Select Paper--</option>
+            </select>
+        </div>
+        <button id="goButton" onclick="showFolderView()" style="display: none;">Go</button>
+        <div id="loadingMessage" style="display: none;">Loading, please wait...</div>
+        <iframe id="folderView" style="display: none;"></iframe>
+    </div>
+    <footer>
+    <script>
+        const paperOptions = {
+            AEC: [
+                { name: "Coming Soon", folderId: "https://duaid.pages.dev/main" }
+            ],
+            GE: [
+  { name: "Business Organization", folderId: "https://drive.google.com/embeddedfolderview?id=1rYKTO6KzSIqv0RqTXfFoFiGDS-gKwzog#grid" },
+  { name: "Delhi Through the Ages - I", folderId: "https://drive.google.com/embeddedfolderview?id=1SdvVfEvjrufKVmQtPxByZccToE1MEkfg#grid" },
+  { name: "Differential Equations", folderId: "https://drive.google.com/embeddedfolderview?id=1YBbm-fDyxnYA52VSPHykXNkseDHZNxDv#grid" },
+  { name: "Digital Communication", folderId: "https://drive.google.com/embeddedfolderview?id=1TDv1ntyaC9aVX1czOfWMIjJp1FbRrLBN#grid" },
+  { name: "English Fluency - 1", folderId: "https://drive.google.com/embeddedfolderview?id=1HpNGzlY49So2JDZTO65KhLQqfNkez_TB#grid" },
+  { name: "Entrepreneurship", folderId: "https://drive.google.com/embeddedfolderview?id=1IvCjoyl6KVz4_ZBqHfVe4nNW9_18k020#grid" },
+  { name: "Ethics in Public Domain", folderId: "https://drive.google.com/embeddedfolderview?id=1i_78JN2t97KST2QCZ1ZqG6uRMpHTdNGt#grid" },
+  { name: "Finance for Everyone", folderId: "https://drive.google.com/embeddedfolderview?id=1RqZsHLBLoBhZzgw0Uy5KZOwVQWA39Jeo#grid" },
+  { name: "Financial Accounting", folderId: "https://drive.google.com/embeddedfolderview?id=1xcEUoSGvGZ6c4HtuXO8e215YP6_sOsOq#grid" },
+  { name: "Fitness and Wellness", folderId: "https://drive.google.com/embeddedfolderview?id=10BpTtSPriyfoKsQUIZNp3LKLGmBjJeQJ#grid" },
+  { name: "Foundations of Psychology", folderId: "https://drive.google.com/embeddedfolderview?id=1vilr_h1z7baWEGPG2FzdtrYbUn8H2B3G#grid" },
+  { name: "Fundamentals of Calculus", folderId: "https://drive.google.com/embeddedfolderview?id=13Z6Jkp8RRG2DgmXjncFQ_8eNHNNGtw7S#grid" },
+  { name: "Genre Fiction", folderId: "https://drive.google.com/embeddedfolderview?id=1nwDmEVEjkboJtxnthRtbdHhSBLZfVDSi#grid" },
+  { name: "Hindi A", folderId: "https://drive.google.com/embeddedfolderview?id=1iR_mMozHI6qJcBt9qMHFhEam2k_qtjHg#grid" },
+  { name: "Hindi B", folderId: "https://drive.google.com/embeddedfolderview?id=1Y_13EIOeL_c2zoUOITCl9UD5ddCj0L37#grid" },
+  { name: "Hindi C", folderId: "https://drive.google.com/embeddedfolderview?id=1HhsGtN8ZB7m64iF7m4M-Auzxk9iqw4jg#grid" },
+  { name: "Ideas in Indian Political Thought", folderId: "https://drive.google.com/embeddedfolderview?id=1aUCQ8cDvFY16-40OCZJVbeICBY2AlACm#grid" },
+  { name: "Indian Geography", folderId: "https://drive.google.com/embeddedfolderview?id=1kGxCBlBOBADAa5klK7u_xHjmahPGLpdl#grid" },
+  { name: "Introduction to Indian Constitution", folderId: "https://drive.google.com/embeddedfolderview?id=1HHSbwSzb0_VVmn0SzShppIkLgm0iOTMX#grid" },
+  { name: "Language Through Literature", folderId: "https://drive.google.com/embeddedfolderview?id=10DpFa0H2rA1ZOHHzfH7MX-HAjiPT3GOd#grid" },
+  { name: "Literature and Human Rights", folderId: "https://drive.google.com/embeddedfolderview?id=1TWSL4KAd0nXwVcUvf_7_g7TA_VLJybsF#grid" },
+  { name: "Macroeconomics", folderId: "https://drive.google.com/embeddedfolderview?id=1GEl6-9e2LGfRde-zmWUJPMtWTbZKnRTz#grid" },
+  { name: "Making of Post Colonial India", folderId: "https://drive.google.com/embeddedfolderview?id=13HaW3QXMMW7oeFGwUeml9XDrPNRCFK1_#grid" },
+  { name: "Microeconomics", folderId: "https://drive.google.com/embeddedfolderview?id=1ha4f9aO5C4npmIyz32FTYA6yj53O7eBj#grid" },
+  { name: "Nationalism in India", folderId: "https://drive.google.com/embeddedfolderview?id=1IlXA8OclVg8miANu9GqUeuVlpDMrTrDB#grid" },
+  { name: "Politics of Globalisation", folderId: "https://drive.google.com/embeddedfolderview?id=1xcvmDOKpU21hfQKm2qxfVLJhhETjmJTt#grid" },
+  { name: "Programming using Python", folderId: "https://drive.google.com/embeddedfolderview?id=1yH7H767LKSbWO0KmOFIZa0fkgE59xpUF#grid" },
+  { name: "Rachnatamak Lekhan", folderId: "https://drive.google.com/embeddedfolderview?id=1YuM4CPYJY1TH_Nh_Y0xZ_YqVxoW3QyCp#grid" },
+  { name: "Understanding History", folderId: "https://drive.google.com/embeddedfolderview?id=1hFAsW13no_P-0_ocvtd44PX2rg3qCxEI#grid" },
+  { name: "Understanding Indian Society", folderId: "https://drive.google.com/embeddedfolderview?id=1sdQMputbw45VpmhvwiCFr15I4rOnoiZe#grid" }
+            ],
+            SEC: [
+            { name: "Coming Soon", folderId: "https://duaid.pages.dev/main" }
+            ],
+            VAC: [
+            { name: "Coming Soon", folderId: "https://duaid.pages.dev/main" }
+            ],
+        };
+
+        function loadPapers() {
+            const type = document.getElementById("type").value;
+            const paperDropdown = document.getElementById("paperDropdown");
+            const paperSelect = document.getElementById("paper");
+
+            paperSelect.innerHTML = '<option value="">--Select Paper--</option>';
+
+            if (type && paperOptions[type]) {
+                paperOptions[type].forEach(paper => {
+                    const option = document.createElement("option");
+                    option.value = paper.folderId;
+                    option.textContent = paper.name;
+                    paperSelect.appendChild(option);
+                });
+                paperDropdown.style.display = "block";
+                document.getElementById("goButton").style.display = "block";
+            } else {
+                paperDropdown.style.display = "none";
+                document.getElementById("goButton").style.display = "none";
+            }
+        }
+
+        function showFolderView() {
+            const selectedFolder = document.getElementById("paper").value;
+            const folderView = document.getElementById("folderView");
+            const loadingMessage = document.getElementById("loadingMessage");
+
+            if (selectedFolder === "") {
+                alert("Please select a paper.");
+                return;
+            }
+
+            loadingMessage.style.display = "block";
+            folderView.style.display = "none";
+
+            setTimeout(() => {
+                loadingMessage.style.display = "none";
+                folderView.src = selectedFolder;
+                folderView.style.display = "block";
+            }, 500); // Simulated delay
+        }
+        document.getElementById('refresh-button').addEventListener('click', function () {
+    location.reload(); // Reloads the page
+});
+
+document.getElementById('close-button').addEventListener('click', function () {
+    document.getElementById('floating-button').style.display = 'none'; // Hides the floating button
+});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <p>Last Updated on 04-12-2024 12:45 PM</p>
+    <div id="counter-container">
+        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1271068/t/2"></script>
+    </div>
+    <br>
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup">
+            <h2>Stay Connected</h2>
+            <div class="social-links">
+                <a href="https://www.whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111728.png" alt="WhatsApp">
+                </a>
+                <a href="https://t.me/RealDUaid" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+                </a>
+                <a href="https://instagram.com/RealDUaid" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+                </a>
+                <a href="mailto:cuetbynta@yahoo.com">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+                </a>
+            </div>
+            <button class="continue-btn" id="continue-btn">Continue to Website</button>
+        </div>
+    </div>
+    
+    <style>
+        /* Popup Overlay */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        /* Popup Box */
+        .popup {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    
+        .popup h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+    
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+    
+        .social-links a img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+    
+        .social-links a img:hover {
+            transform: scale(1.1);
+        }
+    
+        /* Continue Button */
+        .continue-btn {
+            background: #660000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+    
+        .continue-btn:hover {
+            background: #090909;
+        }
+    </style>
+    
+    <script>
+        // JavaScript to handle the continue button
+        const continueButton = document.getElementById('continue-btn');
+        const popupOverlay = document.getElementById('popup-overlay');
+    
+        continueButton.addEventListener('click', () => {
+            popupOverlay.style.display = 'none'; // Hide the popup
+        });
+    </script>
+    
+</body>
+</html>

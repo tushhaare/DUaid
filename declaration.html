@@ -1,112 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Declaration - DUaid</title>
-    
-    <!-- FontAwesome for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        /* General styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #660000;
-            color: #ffcccc;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-            background-color: #330000;
-        }
-
-        .header img {
-            height: 80px; /* Adjust logo height */
-            width: auto;
-        }
-
-        /* Declaration Body */
-        .declaration-body {
-            padding: 40px;
-            text-align: justify;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #330000;
-            padding: 15px 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .social-icons a {
-            margin: 0 15px;
-            color: #ffcccc;
-            text-decoration: none;
-            font-size: 24px;
-        }
-
-        .social-icons a:hover {
-            color: #ff9999;
-        }
-
-        .social-icons a i {
-            font-size: 24px;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .declaration-body {
-                padding: 20px;
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <title>Declaration</title>
+    <link rel="favicon" href="assets/images/logo-167x40.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
 </head>
+
 <body>
-
-    <!-- Logo/Header -->
-    <div class="header">
-        <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid Logo">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo-167x40.png" alt="LOGO"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right mainNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="declaration.html">Declaration</a></li>
+                    <li><a href="work.html">Work With Us</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://chat.whatsapp.com/IyFUdVmCDzFEE7Nohmntpq">Accommodation - PG/Flats</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
     </div>
+    <!-- /.navbar -->
 
-    <!-- Declaration Body -->
-    <div class="declaration-body">
-        <!-- Insert your declaration text here -->
-        <h1>Declaration</h1>
-        <p>
-            <!-- Sample text, you can replace this with your actual content -->
-            
-All the academic materials and resources provided on this website, DUaid, have been carefully gathered and arranged to assist undergraduate students. These materials are re-uploaded for easy access and reference, following the syllabus of the University of Delhi. We do not claim ownership of any of the content uploaded on this platform. </br>
+    <header id="head" class="secondary">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>Declaration</h1>
+                </div>
+            </div>
+        </div>
+    </header>
 
-The website is a non-profit initiative under DUaid and is designed solely for educational purposes. We acknowledge and respect the intellectual property rights of all authors, publishers, and content creators whose work has been referenced or uploaded here. We encourage users to support these authors and publishers by purchasing the original works for a complete and in-depth understanding of the subject. </br>
+    <!-- container -->
+    <section class="container">
+        <div class="row">
+            <!-- main content -->
+            <section class="col-sm-8 maincontent">
+                <p>
+                <p>All the academic materials and resources provided on this website, DUaid, have been carefully gathered and arranged to assist undergraduate students. These materials are re-uploaded for easy access and reference, following the syllabus of the University of Delhi. We do not claim ownership of any of the content uploaded on this platform.
+                    The website is a non-profit initiative under DUaid and is designed solely for educational purposes. We acknowledge and respect the intellectual property rights of all authors, publishers, and content creators whose work has been referenced or uploaded here. We encourage users to support these authors and publishers by purchasing the original works for a complete and in-depth understanding of the subject.
+                    If any concerns or issues regarding copyright arise, please reach out to us, and we will promptly address the matter by taking the necessary actions.
+                </p>
+            </section>
+            <!-- /main -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="container">
+            <div class="social text-center">
+                <a href="https://www.whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d"><i class="fa fa-whatsapp"></i></a>
+				<a href="https://instagram.com/RealDUaid"><i class="fa fa-instagram"></i></a>
+				<a href="http://t.me/RealDUaid"><i class="fa fa-telegram"></i></a>
+			</div>
 
-If any concerns or issues regarding copyright arise, please reach out to us, and we will promptly address the matter by taking the necessary actions.
-        </p>
-    </div>
-</br>
-</br>
-</br>
-</br>
-    <!-- Footer with Social Media Icons -->
-    <footer>
-        <div class="social-icons">
-            <a href="mailto:cuetbynta@yahoo.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://t.me/RealDUaid" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://www.instagram.com/cuetbynta" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <div class="clear"></div>
+            <!--CLEAR FLOATS-->
+        </div>
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 panel">
+                        <div class="panel-body">
+                            <p class="simplenav">
+                                <a href="index.html">Home</a> | 
+								<a href="about.html">About</a>|
+                                <a href="declaration.html">Declaration</a>|
+                                <a href="work.html">Work With Us</a>|
+                                <a href="feedback.html">Feedback</a>|
+								<a href="contact.html">Contact</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 panel">
+                        <div class="panel-body">
+                            <p class="text-right">
+								Copyright &copy; 2024.</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /row of panels -->
+            </div>
         </div>
     </footer>
 
+
+
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 </html>

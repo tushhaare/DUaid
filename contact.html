@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - DUaid</title>
-    
-    <!-- FontAwesome for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        /* General styling */
-        body {
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact Us</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="/js/html5shiv.js"></script>
+	<script src="/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<style>
+
+	        /* General styling */
+			body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #660000;
-            color: #ffcccc;
+            color: #000000;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-            background-color: #330000;
-        }
-
-        .header img {
-            height: 80px; /* Adjust logo height */
-            width: auto;
-        }
-
-        /* Contact Us Body */
-        .contact-body {
+       /* Contact Us Body */
+	   .contact-body {
             padding: 40px;
         }
 
@@ -53,8 +49,8 @@
             padding: 10px;
             margin: 10px 0;
             background-color: #330000;
-            color: #ffcccc;
-            border: 1px solid #ffcccc;
+            color: #978181;
+            border: 1px solid #000000;
             border-radius: 5px;
             font-size: 16px;
         }
@@ -73,85 +69,142 @@
         .contact-form button:hover {
             background-color: #ff9999;
         }
-
-        /* Footer */
-        footer {
-            background-color: #330000;
-            padding: 15px 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .social-icons a {
-            margin: 0 15px;
-            color: #ffcccc;
-            text-decoration: none;
-            font-size: 24px;
-        }
-
-        .social-icons a:hover {
-            color: #ff9999;
-        }
-
-        .social-icons a i {
-            font-size: 24px;
-        }
-
-        /* Responsive design */
-        (max-width: 768px) {
-            .contact-body {
-                padding: 20px;
-            }
-
-            .contact-form input, .contact-form textarea {
-                font-size: 14px;
-            }
-
-            .contact-form button {
-                font-size: 16px;
-            }
-        }
-    </style>
-</head>
+</style>
 <body>
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="index.html">
+					<img src="assets/images/logo-167x40.png" alt="LOGO"></a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav pull-right mainNav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="declaration.html">Declaration</a></li>
+						<li><a href="work.html">Work With Us</a></li>
+						<li><a href="feedback.html">Feedback</a></li>
+						<li class="dropdown">
+		<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+			More <b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="https://chat.whatsapp.com/IyFUdVmCDzFEE7Nohmntpq">Accommodation - PG/Flats</a></li>
+		</ul>
+	</li>
+	
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+	<!-- /.navbar -->
 
-    <!-- Logo/Header -->
-    <div class="header">
-        <img src="https://via.placeholder.com/150x80?text=DUaid+Logo" alt="DUaid Logo">
-    </div>
+	<header id="head" class="secondary">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>Contact us</h1>
+				</div>
+			</div>
+		</div>
+	</header>
 
-    <!-- Contact Us Body -->
-    <div class="contact-body">
-        <h1>Contact Us</h1>
-        <div class="contact-form">
-    <form action="https://formspree.io/f/mgvwqdgl" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name.." required>
+	    <!-- Contact Us Body -->
+		<div class="contact-body">
+			<div class="contact-form">
+		<form action="https://formspree.io/f/mgvwqdgl" method="POST">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" placeholder="Your name.." required>
+	
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" placeholder="Your email.." required>
+	
+			<label for="subject">Subject</label>
+			<input type="text" id="subject" name="subject" placeholder="Subject.." required>
+	
+			<label for="message">Message</label>
+			<textarea id="message" name="message" rows="6" placeholder="Write your message.." required></textarea>
+	
+			<button type="submit">Send Message</button>
+		</form>
+	</div>
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="contact-info">
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your email.." required>
+									<h5>Email</h5>
+									<p>cuetbynta@yahoo.com</p>
+									
+								</div>
+							</div>
+							<div class="col-md-6">
+								<h3 class="section-title">You can also contact us on any of our Social Media Handles.</h3>
+								<div class="contact-info">
+								</div>
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+	<!-- /container -->
 
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Subject.." required>
+	
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" placeholder="Write your message.." required></textarea>
+	<footer id="footer">
+		<div class="container">
+			<div class="social text-center">
+				<a href="https://www.whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d"><i class="fa fa-whatsapp"></i></a>
+				<a href="https://instagram.com/RealDUaid"><i class="fa fa-instagram"></i></a>
+				<a href="http://t.me/RealDUaid"><i class="fa fa-telegram"></i></a>
+			</div>
 
-        <button type="submit">Send Message</button>
-    </form>
-</div>
+			<div class="clear"></div>
+			<!--CLEAR FLOATS-->
+		</div>
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
 
-    <!-- Footer with Social Media Icons -->
-    <footer>
-        <div class="social-icons">
-            <a href="mailto:someone@example.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://wa.me/yourwhatsapplink" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://t.me/yourtelegramlink" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://www.instagram.com/yourinstagramlink" title="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-    </footer>
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="simplenav">
+								<a href="index.html">Home</a> | 
+								<a href="about.html">About</a>|
+                                <a href="declaration.html">Declaration</a>|
+                                <a href="work.html">Work With Us</a>|
+                                <a href="feedback.html">Feedback</a>|
+								<a href="contact.html">Contact</a>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="text-right">
+								Copyright &copy; 2014.</a>
+							</p>
+						</div>
+					</div>
+
+				</div>
+				<!-- /row of panels -->
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="/js/custom.js"></script>
+
 
 </body>
 </html>

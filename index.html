@@ -1,450 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUaid Homepage</title>
-    
-    <!-- FontAwesome for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        /* General styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #660000;
-            color: #ffcccc;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-       /* Navbar */
-        .navbar {
-            background-color: #660000;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar .logo img {
-            height: 10px;
-        }
-        
-        .logo {
-            max-width: 150px; /* Adjust this value to resize the logo */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .navbar ul {
-            list-style-type: none;
-        }
-
-        .navbar ul.mobile {
-            display: none;
-        }
-
-        .navbar ul li {
-            display: inline-block;
-            margin-left: 20px;
-        }
-
-        .navbar ul li a {
-            color: #ffcccc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .navbar .hamburger {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #ffcccc;
-        }
-
-        /* Mobile Menu */
-        @media (max-width: 768px) {
-            .navbar ul {
-                display: none;
-            }
-
-            .navbar ul.mobile {
-                display: block;
-                position: absolute;
-                background-color: #660000;
-                top: 60px;
-                left: 0;
-                right: 0;
-                text-align: center;
-                padding: 10px;
-                display: none;
-            }
-
-            .navbar ul.mobile li {
-                display: block;
-                margin: 10px 0;
-            }
-
-            .navbar .hamburger {
-                display: block;
-            }
-
-            .navbar ul.mobile.active {
-                display: block;
-            }
-        }
-
-/* Common Styles for Banner */
-.banner-container {
-    position: relative;
-    width: 100%;
-    height: auto;
-    min-height: 450px;
-    overflow: hidden;
-    z-index: 1;
-    margin-bottom: -10px;
-}
-
-.banner-container img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
-}
-
-.banner-container img.active {
-    opacity: 1;
-}
-
-/* Mobile-specific banner height */
-@media (max-width: 768px) {
-    .banner-container {
-        min-height: 300px;
-    }
-}
-
-/* Hide the mobile banner on desktop */
-.desktop-banner {
-    display: block;
-}
-
-.mobile-banner {
-    display: none;
-}
-
-/* Show mobile banner only on mobile */
-@media (max-width: 768px) {
-    .desktop-banner {
-        display: none;
-    }
-    
-    .mobile-banner {
-        display: block;
-    }
-}
-        /* Welcome Text */
-        .welcome-text {
-            text-align: center;
-            margin-top: 10px; /* Reduced margin for less gap */
-        }
-
-        /* Reviews Section */
-        .review-section {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .review-container {
-            position: relative;
-            height: 100px;
-            overflow: hidden;
-        }
-
-        .review-text {
-            display: none;
-            padding: 10px;
-            font-size: 18px;
-        }
-
-        .review-text.active {
-            display: block;
-        }
-
-        /* Footer Social Icons */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-        }
-
-        .social-icons a {
-            color: #ffcccc;
-            margin: 0 10px;
-            font-size: 24px;
-            text-decoration: none;
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            font-size: 30px;
-            cursor: pointer;
-            color: #ffcccc;
-        }
-
-        .navbar ul.mobile {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 70px;
-            right: 0;
-            background-color: #330000;
-            width: 100%;
-            z-index: 10; /* Ensure the mobile menu is also on top of the banner */
-        }
-
-        .navbar ul.mobile li {
-            text-align: center;
-            padding: 10px 0;
-            margin: 0;
-        }
-
-        /* Notice board */
-        .notice-board {
-            background-color: #330000;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .notice-board h2 {
-            margin: 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ffcccc;
-        }
-
-        .notices {
-            height: 100px;
-            overflow: hidden;
-            position: relative;
-            font-size: 1.1rem;
-        }
-
-        .notices div {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            animation: scroll 12s linear infinite;
-        }
-
-        .notices div a {
-            color: #ffcccc;
-            text-decoration: none;
-            margin: 5px 0; /* Space between notices */
-            display: block; /* Ensure each notice is on a new line */
-        }
-
-        @keyframes scroll {
-            0% { top: 100%; }
-            100% { top: -100%; }
-        }
-
-        /* Continue button */
-        .continue-btn {
-            display: block;
-            text-align: center;
-            margin: 20px auto;
-            padding: 15px 30px;
-            background-color: #ffcccc;
-            color: #330000;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .continue-btn:hover {
-            background-color: #ff9999;
-        }
-
-        /* Review Section */
-        .review-section {
-            padding: 20px;
-            text-align: center;
-            background-color: #330000;
-        }
-
-        .review-container {
-            display: flex;
-            overflow: hidden;
-            position: relative;
-            height: 150px;
-        }
-
-        .review-container div {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
-
-        .review-container div.active {
-            opacity: 1;
-        }
-
-        .review-text {
-            color: #ffcccc;
-            font-size: 1.1rem;
-            font-style: italic;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #330000;
-            padding: 15px 0;
-            text-align: center;
-            opacity: 0; /* Start hidden */
-            transition: opacity 1s ease-in-out; /* Fade effect */
-        }
-
-        footer.active {
-            opacity: 1; /* Fade in when active */
-        }
-
-        .social-icons a {
-            margin: 0 15px;
-            color: #ffcccc;
-            text-decoration: none;
-            font-size: 24px;
-        }
-
-        .social-icons a:hover {
-            color: #ff9999;
-        }
-
-        .social-icons a i {
-            font-size: 24px;
-        }
-    </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DUaid - Tumhare College Ke Dard Ka First-Aid </title>
+	<link rel="favicon" href="assets/images/favicon.png">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="assets/css/da-slider.css" />
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
 </head>
 <body>
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="index.html">
+					<img src="assets/images/logo-167x40.png" alt="DUaid LOGO"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right mainNav">
+					<li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="declaration.html">Declaration</a></li>
+                    <li><a href="work.html">Work With Us</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://chat.whatsapp.com/IyFUdVmCDzFEE7Nohmntpq">Accommodation - PG/Flats</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+	<!-- /.navbar -->
 
-    <!-- Navigation Menu with Logo and Hamburger -->
-    <div class="navbar">
-        <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid Logo" class="logo">
-        <ul class="desktop">
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="declaration.html">Declaration</a></li>
-            <li><a href="work.html">Work With Us</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-        </ul>
-        <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
-        <ul class="mobile">
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="declaration.html">Declaration</a></li>
-            <li><a href="work.html">Work With Us</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-        </ul>
-    </div>
+	<!-- Header -->
+	<header id="head">
+		<div class="container">
+			<div class="banner-content">
+				<div id="da-slider" class="da-slider">
+					<div class="da-slide">
+						<h2>Timely Updates</h2>
+						<p>Stay informed with the latest news & events happening across DU.</p>
+						<div class="da-img"></div>
+					</div>
+					<div class="da-slide">
+						<h2>Resource Hub</h2>
+						<p>Access study materials, syllabi, and PYQs tailored to your academic needs.</p>
+						<div class="da-img"></div>
+					</div>
+					<div class="da-slide">
+						<h2>Community Building</h2>
+						<p>From Study Resources to Accommodation Support: we got you all.</p>
+						<div class="da-img"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- /Header -->
 
-<!-- Fading Banner for Desktop -->
-<div class="banner-container desktop-banner">
-    <img src="https://i.imghippo.com/files/Jqf3B1725804629.png" alt="Banner Image 1" class="active">
-    <img src="https://i.imghippo.com/files/VkmbP1725804708.png" alt="Banner Image 2">
-    <img src="https://i.imghippo.com/files/OEOox1725804740.png" alt="Banner Image 3">
-</div>
-
-<!-- Fading Banner for Mobile -->
-<div class="banner-container mobile-banner">
-    <img src="images/1.png" alt="Mobile Banner Image 1" class="active">
-    <img src="images/2.png" alt="Mobile Banner Image 2">
-    <img src="images/3.png" alt="Mobile Banner Image 3">
-</div>
-
-    <div class="welcome-text">
-        <h1>Welcome to DUaid</h1>
-        <p>Your one-stop solution for all things related to Delhi University!</p>
-    </div>
-
-    <!-- Notice Board -->
-    <div class="notice-board">
-        <h2>Latest Notices</h2>
-        <div class="notices">
-            <div>
-                <a href="notices\NOTIFICATION_20240905_082506_0000.pdf">Notice reg. Site Development (Dated - 05/09/2024)</a>
-                <a href="#">Notice 2</a>
-                <a href="#">Notice 3</a>
-                <a href="#">Notice 4</a>
-                <a href="#">Notice 5</a>
+	   <section class="container">
+		<div class="heading">
+			<!-- Heading -->
+			<h2>What is DUaid?</h2>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<img src="assets/images/spotlight.png" alt="" class="img-responsive">
+			</div>
+			<div class="col-md-8">
+				<p>DUaid is a dedicated platform run by student volunteers, focused on everything that revolves around the University of Delhi. From timely updates and news to essential academic resources like study materials, syllabi, and previous year question papers, we strive to make the DU experience seamless and accessible for all. Our resources cater to both English and Hindi medium students, ensuring inclusivity and accessibility for all, including those facing physical challenges. </p>
+				<blockquote class="blockquote-1">
+					<p>"Delhi University has consistently been at the forefront of academic innovation, offering a rich environment where critical thinking is encouraged, and diverse perspectives are nurtured. It remains a cornerstone of intellectual growth in India, shaping not only scholars but also future leaders."</p>
+					<small>Prof. Romila Thapar, <cite title="Source Title">History and Beyond
+			</div>
+		</div>
+	</section>
+	
+	
+      <section class="container">
+      <div class="row">
+      	<div class="col-md-4"><div class="title-box clearfix "><h2 class="title-box_primary">Our Vision</h2></div> 
+        <p><span>At DUaid, we aspire to create a vibrant community where every student at the University of Delhi stays informed, empowered, and supported in their academic journey. By bridging the information gap, we aim to ensure that no student is left behind in the fast-paced academic environment of DU.</span></p>
+        </div>
+        
+        <div class="col-md-4"><div class="title-box clearfix "><h2 class="title-box_primary">Access Study Resources</h2></div> 
+            <div class="list styled custom-list">
+            <ul>
+            <li><a title="Tap to proceed." href="duaid.pages.dev/PolSci-H">B.A. (Hons.) Political Science</a></li>
+            <li><a title="Tap to proceed." href="duaid.pages.dev/History-H">B.A. (Hons.) History</a></li>
+            <li><a title="Tap to proceed." href="duaid.pages.dev/resources">GE/SEC/VAC/AEC</a></li>
+            </ul>
+            </div>
+         </div>
+         <div class="col-md-4"><div class="title-box clearfix "><h2 class="title-box_primary">DU Campus Map</h2></div> 
+         <p><span>Credits : India Today and Hindustan Times</span></p>   
+		 <figure class="frame thumbnail alignnone clearfix">
+            <p><img class="size-full " alt="usa" src="https://akm-img-a-in.tosshub.com/sites/media2/indiatoday/images/stories/2011June/delhi-university_2_enlarge_061411093058.jpg" width="" height="197"></p>
+			<a href="\assets\images\Du-Campus-@RealDUaid.jpeg" title="MAP" class="btn-inline " target="_self">View Full Map in HD</a> </div>    
+		</figure></div>
+      </div>
+      </section>
+      
+    
+      
+      <section class="news-box">
+        <div class="container">
+            <h2><span>Latest News</span></h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+				<a href="https://duelibrary.in" target="_blank" style="text-decoration: none;">
+                    <div class="newsBox">
+                        <div class="thumbnail">
+                            <figure><time datetime="2014-01-01">10 Dec, 2024</time><img src="assets/images/news1.png" alt=""></figure>
+                            <div class="caption maxheight2"><div class="box_inner">
+                               Last Date of filling exam form for 1st Year is extendend upto 20.10.24.
+                            </div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+				<a href="https://duelibrary.in" target="_blank" style="text-decoration: none;">
+                    <div class="newsBox">
+                        <div class="thumbnail">
+                            <figure><time datetime="2014-01-01">11 Dec, 2024</time><img src="assets/images/news2.png" alt=""></figure>
+                            <div class="caption maxheight2"><div class="box_inner">
+                                DUTA Strike on 18.12.2024 : Classes suspended for 1st year, 12 PM onwards.
+                            </div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<a href="https://duelibrary.in" target="_blank" style="text-decoration: none;">
+                    <div class="newsBox">
+                        <div class="thumbnail">
+                            <figure><time datetime="2014-01-01">25 Nov, 2024</time><img src="assets/images/news3.png" alt=""></figure>
+                            <div class="caption maxheight2"><div class="box_inner">
+                                DUSU 2024-25 Election Result Declared on 25.11.2024.
+                            </div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<a href="https://duelibrary.in" target="_blank" style="text-decoration: none;">
+                    <div class="newsBox">
+                        <div class="thumbnail">
+                            <figure><time datetime="2014-01-01">14 Aug, 2024</time><img src="assets/images/news4.jpeg" alt=""></figure>
+                            <div class="caption maxheight2"><div class="box_inner">
+                                Delhi University E-Library - Available at: duelibrary.in
+                            </div></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+   
+    <footer id="footer">
+		<div class="container">
+			<div class="social text-center">
+				<a href="https://www.whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d"><i class="fa fa-whatsapp"></i></a>
+				<a href="https://instagram.com/RealDUaid"><i class="fa fa-instagram"></i></a>
+				<a href="http://t.me/RealDUaid"><i class="fa fa-telegram"></i></a>
+			</div>
 
-    <!-- Continue to Website Button -->
-    <a href="home.html" class="continue-btn">Continue to Website</a>
+			<div class="clear"></div>
+			<!--CLEAR FLOATS-->
+		</div>
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
 
-    <!-- Review Section -->
-    <div class="review-section">
-        <h2>Public Reviews</h2>
-        <div class="review-container">
-            <div class="review-text active"> JATIN YADAV ~ "I am extremely grateful for the guidance and mentorship provided by Duaid. Their support played a crucial role in helping me secure admission to a great college. The mentors were knowledgeable, approachable, and always willing to go the extra mile to address my concerns. They offered personalized advice and strategies tailored to my goals, which gave me clarity and confidence throughout the process. I highly recommend Duaid to anyone looking for expert mentorship in their college journey."</div>
-            <div class="review-text"> PRATHA VERMA ~ "The study material provided during our prep time were really helpful and the quizzes were the best part on telegram because it brought out the competitive spirit in all of us👍🏻The mentorship was truly the best.. quick and accurate responses to our doubts and queries. It was a short but wonderful journey.. thankyou to all the mentors for their guidance and support!🙏🏻"</div>
-            <div class="review-text"> ANUSHKA YADAV ~ "This channel and the mentorship I got myself enrolled in was the best decision of my life. If I am today in MH, it is all because of Tushar bhaiya because he guided us throughout our csas journey and made the best preference sheet for us. He gave all the updates after the allocation as well. This is the BEST .💗"</div>
-            <div class="review-text"> RISHABH MANGAL ~ "Huge thanks to tushar bhaiya and team for their efforts. They provided literal one-on-one mentorship and immediate replies at any time whenever we had any doubts related to any process of the admission. You guys please trust Tushar bhaiya and sabka admission ho jayega achhe college Mai.
-"</div>
-            <div class="review-text"> VARSHA JAISWAL ~ "The DUaid platform turned out to be a savior for me, as it connected me with Satyam Bhaiya, who became my mentor. He consistently provided clarity on my doubts, quickly addressed all my queries, remained patient, and gave me the best possible advice for my situation.
-                "</div>
-            <div class="review-text"> BEAUTY YADAV ~ "This is the best mentorship ever Mentors are also very good and supportive, not just the preference list, all our doubts and queries were resolved.
-                "</div>
-        </div>
-    </div>
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="simplenav">
+								<a href="index.html">Home</a> | 
+								<a href="about.html">About</a>|
+                                <a href="declaration.html">Declaration</a>|
+                                <a href="work.html">Work With Us</a>|
+                                <a href="feedback.html">Feedback</a>|
+								<a href="contact.html">Contact</a>
+							</p>
+						</div>
+					</div>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="social-icons">
-            <a href="https://instagram.com/cuetbynta"><i class="fab fa-instagram"></i></a>
-            <a href="https://whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://t.me/RealDUaid"><i class="fab fa-telegram"></i></a>
-            <a href="mailto:cuetbynta@yahoo.com"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p>&copy; 2024 DUaid. All Rights Reserved.</p>
-    </footer>
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="text-right">
+								Copyright &copy; 2024.</a>
+							</p>
+						</div>
+					</div>
 
-    <script>
-        // Hamburger Menu Toggle
-        function toggleMenu() {
-            const menu = document.querySelector('.navbar ul.mobile');
-            menu.classList.toggle('active');
-        }
+				</div>
+				<!-- /row of panels -->
+			</div>
+		</div>
+	</footer>
 
-        // Fading Banner Logic
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.banner-container img');
-        setInterval(() => {
-            slides[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % slides.length;
-            slides[currentIndex].classList.add('active');
-        }, 3000); // Change slide every 3 seconds
-
-        // Review Section Logic
-        let reviewIndex = 0;
-        const reviews = document.querySelectorAll('.review-text');
-        setInterval(() => {
-            reviews[reviewIndex].classList.remove('active');
-            reviewIndex = (reviewIndex + 1) % reviews.length;
-            reviews[reviewIndex].classList.add('active');
-        }, 10000); // Change review every 5 seconds
-
-        // Fade in Footer on Load
-        window.onload = function() {
-            document.querySelector('footer').classList.add('active');
-        };
-    </script>
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="assets/js/modernizr-latest.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.cslider.js"></script>
+	<script src="assets/js/custom.js"></script>
 </body>
 </html>

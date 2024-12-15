@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    
+     <script src="/search.js"></script>
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -27,6 +27,33 @@
             padding: 0;
             box-sizing: border-box;
         }
+	#search-bar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#results {
+    list-style-type: none;
+    padding: 0;
+}
+
+#results li {
+    margin-bottom: 10px;
+}
+
+#results li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#results li a:hover {
+    text-decoration: underline;
+}
+
 </style>
 <body>
 	<!-- Fixed navbar -->

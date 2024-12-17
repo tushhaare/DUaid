@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>FDP on Quantum Computing and Post-Quantum Cryptography</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<!-- Custom styles-->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+    <style>
+	    /* Default styles for larger screens */
+h1 {
+    font-size: 2.5rem; /* Adjust this size as needed for desktop */
+    line-height: 1.2; /* Adjust spacing between lines */
+    word-wrap: break-word; /* Ensures words break if too long */
+}
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Smaller font size for mobile */
+        line-height: 1.3; /* Adjust line spacing for better readability */
+        word-wrap: break-word; /* Ensures text doesn't overflow */
+    }
+
+    .col-sm-8 {
+        width: 100%; /* Ensure the column spans the full width */
+    }
+}
+
+		.image-modal {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.8);
+			justify-content: center;
+			align-items: center;
+			z-index: 1000;
+		}
+
+		.image-modal img {
+			max-width: 90%;
+			max-height: 90%;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+			border-radius: 8px;
+		}
+
+		.close-button {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 24px;
+			color: white;
+			background: none;
+			border: none;
+			cursor: pointer;
+		}
+
+		.close-button:hover {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="/index">
+					<img src="assets/images/logo-167x40.png" alt="LOGO"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right mainNav">
+					<li><a href="/index">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/declaration">Declaration</a></li>
+                    <li><a href="/work">Work With Us</a></li>
+                    <li><a href="/feedback">Feedback</a></li>
+                    <li class="dropdown">
+    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+        More <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+        <li><a href="https://chat.whatsapp.com/IyFUdVmCDzFEE7Nohmntpq">Accommodation - PG/Flats</a></li>
+    </ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+	<!-- /.navbar -->
+
+	<header id="head" class="secondary">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>FDP on Quantum Computing and Post-Quantum Cryptography</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- container -->
+	<section class="container">
+
+		<div class="row">
+
+			<!-- Article main content -->
+			<article class="col-md-8 maincontent">
+				<br />
+				<br />
+				<p>The University of Delhi's Department of Computer Science, in collaboration with the National Institute of Technology (NIT) Patna and DUCC, has announced a comprehensive Faculty Development Programme (FDP) on Quantum Computing and Post-Quantum Cryptography. Scheduled from February 3 to 8, 2025, this event will take place in hybrid mode—accommodating both online and offline participants.</p>
+				<p>The programme aims to bring together academicians, researchers, and industry professionals to delve into the evolving world of quantum mechanics and post-quantum cryptographic systems. It focuses on the challenges and advancements posed by quantum technologies, highlighting their increasing relevance in modern computing.</p>
+    <h2>Bridging Academia and Industry for Future Technologies</h2>
+				<p>The FDP will cover critical topics such as quantum acceleration, multi-qubit gates, quantum key distribution (QKD), and algorithms like Deutsch-Jozsa, Grover's, and Shor's. It will also explore quantum Fourier transforms, cryptanalysis, and machine learning algorithms powered by quantum systems. Participants will gain foundational and practical knowledge essential for solving real-world computational and cryptographic challenges.</p>
+				<p>The registration fee is structured to encourage broad participation:
+- Faculty: ₹1500/-
+- Research Scholars (Ph.D.): ₹750/-
+- Students: ₹500/-
+The final date for registration is January 31, 2025, ensuring adequate time for participants to prepare for this intensive learning experience.</p>
+				<p>Interested participants can register through the official portal using this link: <a href="https://www.forms.du.ac.in/mac/view.php?id=156197">Registration Link</a>
+The venue for offline sessions is the Seminar Hall, Department of Computer Science, Faculty of Mathematical Sciences, University of Delhi.</p>
+			
+            </article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-md-4 sidebar sidebar-right">
+
+				<div class="row panel">
+					<div class="col-xs-12">
+						<h3>Disclaimer:</h3>
+						<p>The blogs published on our website are not originally reported by DUaid. We compile and consolidate news and information from various online sources to present it in an accessible format for our audience. If you are the rightful owner of any content and wish to request its removal, please contact us, and we will address your concern promptly.</p>
+					</div>
+				</div>
+				<div class="row panel">
+					<div class="col-xs-12">
+							<img src="assets/images/5.jpg" alt="" id="thumbnail">                
+					</div>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</section>
+	<!-- /container -->
+
+	<footer id="footer">
+		<div class="container">
+			<div class="social text-center">
+				<a href="https://www.whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d"><i class="fa fa-whatsapp"></i></a>
+				<a href="https://instagram.com/RealDUaid"><i class="fa fa-instagram"></i></a>
+				<a href="http://t.me/RealDUaid"><i class="fa fa-telegram"></i></a>
+			</div>
+
+			<div class="clear"></div>
+			<!--CLEAR FLOATS-->
+		</div>
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="simplenav">
+								<a href="/index">Home</a> | 
+								<a href="/about">About</a>|
+                                <a href="/declaration">Declaration</a>|
+                                <a href="/work">Work With Us</a>|
+                                <a href="/feedback">Feedback</a>|
+								<a href="/contact">Contact</a>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="text-right">
+								Copyright &copy; 2024.</a>
+							</p>
+						</div>
+					</div>
+
+				</div>
+				<!-- /row of panels -->
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="js/modernizr-latest.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="js/jquery.cslider.js"></script>
+	<script src="js/custom.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all images inside the article or other specific section
+        const images = document.querySelectorAll("img");
+    
+        // Create a modal element for displaying the image
+        const modal = document.createElement("div");
+        modal.id = "imageModal";
+        modal.style.display = "none";
+        modal.style.position = "fixed";
+        modal.style.top = "0";
+        modal.style.left = "0";
+        modal.style.width = "100%";
+        modal.style.height = "100%";
+        modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+        modal.style.zIndex = "1000";
+        modal.style.justifyContent = "center";
+        modal.style.alignItems = "center";
+        modal.style.textAlign = "center";
+    
+        // Image element inside the modal
+        const modalImage = document.createElement("img");
+        modalImage.style.maxWidth = "90%";
+        modalImage.style.maxHeight = "90%";
+        modalImage.style.margin = "auto";
+    
+        // Close button for the modal
+        const closeButton = document.createElement("button");
+        closeButton.innerText = "X";
+        closeButton.style.position = "absolute";
+        closeButton.style.top = "20px";
+        closeButton.style.right = "20px";
+        closeButton.style.background = "none";
+        closeButton.style.color = "white";
+        closeButton.style.fontSize = "24px";
+        closeButton.style.border = "none";
+        closeButton.style.cursor = "pointer";
+    
+        // Append the elements to the modal
+        modal.appendChild(modalImage);
+        modal.appendChild(closeButton);
+    
+        // Append modal to the body
+        document.body.appendChild(modal);
+    
+        // Add click event to each image
+        images.forEach((img) => {
+            img.addEventListener("click", function () {
+                modalImage.src = this.src; // Set the modal image source to the clicked image
+                modal.style.display = "flex"; // Show the modal
+            });
+        });
+    
+        // Add click event to the close button
+        closeButton.addEventListener("click", function () {
+            modal.style.display = "none"; // Hide the modal
+        });
+    
+        // Add click event to the modal background to close it
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                modal.style.display = "none"; // Hide the modal
+            }
+        });
+    });
+</script>
+    </body>
+</html>

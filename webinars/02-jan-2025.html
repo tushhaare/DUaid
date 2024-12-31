@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    overflow: hidden; /* Prevent unwanted scroll */
 }
 
 header, footer {
@@ -54,9 +55,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 60px 20px; /* Add padding for header and footer space */
+    padding-top: 70px; /* Adjust based on header height */
+    padding-bottom: 50px; /* Adjust based on footer height */
     box-sizing: border-box;
-    overflow: auto; /* Prevent content overflow */
 }
 
 .verification-container {
@@ -68,6 +69,19 @@ footer {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     box-sizing: border-box;
+    transform: translateY(-10%);
+    animation: slideIn 0.4s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 h1 {
@@ -115,7 +129,6 @@ button:hover {
     display: none;
 }
 
-/* Responsive Design */
 @media (min-width: 768px) {
     .verification-container {
         max-width: 600px;
@@ -128,6 +141,22 @@ button:hover {
     input, button {
         font-size: 18px;
     }
+}
+.chat-section {
+    width: 100%;
+    max-width: 600px;
+    height: 500px; /* Adjust height as needed */
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.chat-section iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
 }
 	</style>
 </head>

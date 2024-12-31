@@ -21,102 +21,115 @@
     <style>
         /* Basic CSS Styling */
     body {
-        font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Prevent unwanted scroll */
+}
 
-        .verification-container,
-        .live-container {
-            width: 90%;
-            max-width: 400px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
+header, footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 10;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px 0;
+}
 
-        h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 15px;
-        }
+header {
+    top: 0;
+}
 
-        p {
-            font-size: 14px;
-            color: #555;
-            margin: 10px 0;
-        }
+footer {
+    bottom: 0;
+}
 
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px; /* Add padding for header and footer space */
+    box-sizing: border-box;
+    overflow: auto; /* Prevent content overflow */
+}
 
-        button {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.verification-container {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
 
-        button:hover {
-            background-color: #0056b3;
-        }
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
 
-        #errorMessage {
-            font-size: 14px;
-            color: red;
-            display: none;
-        }
+p {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+}
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
 
-        .video-section, .chat-section {
-            margin: 20px 0;
-            width: 100%;
-        }
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
 
-        iframe {
-            border-radius: 5px;
-            border: none;
-        }
+button:hover {
+    background-color: #0056b3;
+}
 
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .verification-container,
-            .live-container {
-                max-width: 600px;
-            }
+#errorMessage {
+    font-size: 14px;
+    color: red;
+    display: none;
+}
 
-            h1 {
-                font-size: 28px;
-            }
+/* Responsive Design */
+@media (min-width: 768px) {
+    .verification-container {
+        max-width: 600px;
+    }
 
-            input, button {
-                font-size: 18px;
-            }
-        }
+    h1 {
+        font-size: 28px;
+    }
+
+    input, button {
+        font-size: 18px;
+    }
+}
 	</style>
 </head>
 

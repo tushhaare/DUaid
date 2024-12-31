@@ -84,27 +84,29 @@
             loading.style.display = 'block';
 
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbwol0ki4tESAvTp3d_WT2yT2lyUqAj4rsVUESV2YQ/dev', { // Replace with your Web App URL
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`
-                });
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwol0ki4tESAvTp3d_WT2yT2lyUqAj4rsVUESV2YQ/dev', { // Replace with your Web App URL
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`
+    });
 
-                const result = await response.json();
-                loading.style.display = 'none';
+    // Handle plain text response
+    const result = await response.text();
+    loading.style.display = 'none';
 
-                if (result.success) {
-                    verificationBox.style.display = 'none';
-                    mainContent.style.display = 'block';
-                } else {
-                    alert('Invalid email or phone number. Please try again.');
-                }
-            } catch (error) {
-                loading.style.display = 'none';
-                alert('An error occurred. Please try again.');
-            }
+    if (result.trim() === 'success') {
+        verificationBox.style.display = 'none';
+        mainContent.style.display = 'block';
+    } else {
+        alert('Invalid email or phone number. Please try again.');
+    }
+} catch (error) {
+    loading.style.display = 'none';
+    alert('An error occurred. Please try again.');
+    console.error('Error:', error);
+}
         }
     </script>
 </head>

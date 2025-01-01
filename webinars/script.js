@@ -1,12 +1,13 @@
 // Firebase Configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyAMN3DLIbR62qCmxlhSg4yL0-RVFPOlB-k",
+  authDomain: "webinarchats-duaid.firebaseapp.com",
+  databaseURL: "https://webinarchats-duaid-default-rtdb.firebaseio.com",
+  projectId: "webinarchats-duaid",
+  storageBucket: "webinarchats-duaid.firebasestorage.app",
+  messagingSenderId: "896959903849",
+  appId: "1:896959903849:web:d5dfee182b5328b3490af8",
+  measurementId: "G-07BHGP84DS"
 };
 
 // Initialize Firebase

@@ -11,7 +11,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 
     try {
         // Fetch user data from the local JSON file
-        const response = await fetch('/webinars/users.json');
+        const response = await fetch('./webinars/users.json');
         const data = await response.json();
 
         // Check if the email and phone match any authorized user

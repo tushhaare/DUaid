@@ -1,8 +1,11 @@
 // Hardcoded user data
 const authorizedUsers = [
-[{ Phone: "9468538013", Email: "jainj0624@gmail.com", Granted: true }
+    { Phone: "9468538013", Email: "jainj0624@gmail.com", Granted: true },
+    { Phone: "9876543210", Email: "user2@example.com", Granted: true },
+    { Phone: "1234567890", Email: "user3@example.com", Granted: false }
 ];
- document.getElementById('login-form').addEventListener('submit', (event) => {
+
+document.getElementById('login-form').addEventListener('submit', (event) => {
     event.preventDefault();
 
     const phone = document.getElementById('phone').value.trim();

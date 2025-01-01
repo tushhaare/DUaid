@@ -14,34 +14,40 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.database(app);
 
-// References
-const chatbox = document.getElementById('chatbox');
-const chatContainer = document.createElement('div');
-chatContainer.setAttribute('id', 'chat-messages');
-document.getElementById('chatbox-container').appendChild(chatContainer);
-const sendBtn = document.getElementById('send-btn');
+// Form Submit Listener
+document.getElementById('login-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-// Send Chat Message
-sendBtn.addEventListener('click', () => {
-    const message = chatbox.value.trim();
-    if (message) {
-        const timestamp = new Date().toISOString();
-        db.ref('messages').push({
-            username: 'Anonymous', // Replace with user authentication if needed
-            message,
-            timestamp
-        });
-        chatbox.value = '';
-    } else {
-        alert('Please enter a message before sending.');
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if (!phone || phone.length < 10 || !email.includes('@')) {
+        alert('Please enter a valid phone number and email address.');
+        return;
     }
-});
 
-// Display Chat Messages in Real-Time
-db.ref('messages').on('child_added', (snapshot) => {
-    const data = snapshot.val();
-    const messageElement = document.createElement('p');
-    messageElement.innerHTML = `<strong>${data.username}:</strong> ${data.message}`;
-    chatContainer.appendChild(messageElement);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+    try {
+        // Check if the email exists in the database
+        const snapshot = await db.ref(`authorizedUsers/${email}`).get();
+
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            
+            // Match the phone number
+            if (userData.phone === phone && userData.granted) {
+                alert('Access Granted! Redirecting...');
+                
+                // Hide login section and show webinar section
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('webinar-section').style.display = 'block';
+            } else {
+                alert('Access Denied! Phone number does not match or access is not granted.');
+            }
+        } else {
+            alert('Access Denied! Email is not authorized.');
+        }
+    } catch (error) {
+        console.error('Error verifying user:', error);
+        alert('An error occurred while verifying your details. Please try again later.');
+    }
 });

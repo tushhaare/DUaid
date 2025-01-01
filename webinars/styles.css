@@ -7,7 +7,7 @@ body {
 
 #login-section, #webinar-section {
     text-align: center;
-    padding: 50px;
+    padding: 20px;
 }
 
 form {
@@ -45,7 +45,32 @@ button:hover {
     background: #0056b3;
 }
 
-iframe {
+#video-container {
     margin-top: 20px;
+    text-align: center;
+}
+
+/* Style the iframe (live stream) */
+iframe {
+    max-width: 100%;
+    height: auto;
     border: none;
+    border-radius: 10px;
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    #login-section, #webinar-section {
+        padding: 10px;
+    }
+
+    form {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    iframe {
+        width: 100%;
+        height: 200px;
+    }
 }

@@ -2,74 +2,50 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    background-color: #f4f4f4;
 }
 
 #login-section, #webinar-section {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 90%;
-    max-width: 600px;
+    padding: 50px;
 }
 
-h1 {
-    color: #4CAF50;
+form {
+    display: inline-block;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 label {
     display: block;
-    margin: 10px 0 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-input, textarea {
+input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
-    background: #4CAF50;
-    color: #fff;
+    padding: 10px 20px;
     border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background: #45a049;
+    background: #0056b3;
 }
 
-#video-container {
+iframe {
     margin-top: 20px;
+    border: none;
 }
-
-#chatbox-container {
-    margin-top: 20px;
-}
-
-textarea {
-    height: 100px;
-}
-
-#chat-messages {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    height: 200px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    background: #f9f9f9;
-}
-

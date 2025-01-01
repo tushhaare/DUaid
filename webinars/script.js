@@ -11,13 +11,15 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 
     try {
         // Fetch user data from the local JSON file
-        const response = await fetch('./webinars/users.json');
+        const response = await fetch('users.json');
         const data = await response.json();
 
         // Check if the email and phone match any authorized user
-        const user = data.authorizedUsers.find(u => u.email === email && u.phone === phone);
+        const user = data.authorizedUsers.find(
+            u => u.Email === email && u.Phone === phone
+        );
 
-        if (user && user.granted) {
+        if (user && user.Granted) {
             alert('Access Granted!');
             document.getElementById('login-section').style.display = 'none';
             document.getElementById('webinar-section').style.display = 'block';

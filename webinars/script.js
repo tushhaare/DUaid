@@ -15,10 +15,9 @@ const firebaseConfig = {
     measurementId: "G-07BHGP84DS"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getDatabase(app); // Initialize Firebase Database
+// Initialize Firebase (only once)
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
 
 // Form Submit Listener
 document.getElementById('login-form').addEventListener('submit', async (event) => {

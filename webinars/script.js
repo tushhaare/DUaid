@@ -4,15 +4,17 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
 
-    if (!phone || !email) {
-        alert('Please provide valid phone and email.');
+    if (!phone || phone.length < 10 || !email.includes('@')) {
+        alert('Please enter a valid phone number and email address.');
         return;
     }
 
     try {
+        // Fetch user data from the local JSON file
         const response = await fetch('users.json');
         const data = await response.json();
 
+        // Check if the email and phone match any authorized user
         const user = data.authorizedUsers.find(u => u.email === email && u.phone === phone);
 
         if (user && user.granted) {
@@ -20,7 +22,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
             document.getElementById('login-section').style.display = 'none';
             document.getElementById('webinar-section').style.display = 'block';
         } else {
-            alert('Access Denied! Incorrect credentials or access not granted.');
+            alert('Access Denied! Incorrect details or access not granted.');
         }
     } catch (error) {
         console.error('Error loading user data:', error);

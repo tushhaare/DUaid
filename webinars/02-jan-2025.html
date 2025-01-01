@@ -3,45 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webinar Page</title>
+    <title>Webinar Login</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"></script>
-<script defer src="script.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <div id="login-section">
-    <h1>Login to Access the Webinar</h1>
-    <form id="login-form">
-        <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
-        
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        
-        <button type="submit">Verify and Proceed</button>
-    </form>
-</div>
+        <h1>Login to Access the Webinar</h1>
+        <form id="login-form">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+            
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <button type="submit">Verify and Proceed</button>
+        </form>
+    </div>
 
     <div id="webinar-section" style="display: none;">
         <h1>Live Webinar</h1>
-        <div id="video-container">
-            <!-- YouTube Live Stream -->
-            <iframe 
-                id="live-stream" 
-                width="800" 
-                height="450" 
-                src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-        <div id="chatbox-container">
-            <h2>Chatbox</h2>
-            <textarea id="chatbox" placeholder="Enter your messages here..."></textarea>
-            <button id="send-btn">Send</button>
-        </div>
+        <iframe 
+            width="800" 
+            height="450" 
+            src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
     </div>
 </body>
 </html>

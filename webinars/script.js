@@ -1,7 +1,7 @@
 // Hardcoded user data
 const authorizedUsers = [
 [{ Phone: "9468538013", Email: "jainj0624@gmail.com", Granted: true }
-]
+];
  document.getElementById('login-form').addEventListener('submit', (event) => {
     event.preventDefault();
 

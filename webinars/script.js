@@ -1,18 +1,19 @@
 // Firebase Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAMN3DLIbR62qCmxlhSg4yL0-RVFPOlB-k",
-  authDomain: "webinarchats-duaid.firebaseapp.com",
-  databaseURL: "https://webinarchats-duaid-default-rtdb.firebaseio.com",
-  projectId: "webinarchats-duaid",
-  storageBucket: "webinarchats-duaid.firebasestorage.app",
-  messagingSenderId: "896959903849",
-  appId: "1:896959903849:web:d5dfee182b5328b3490af8",
-  measurementId: "G-07BHGP84DS"
-};
+    authDomain: "webinarchats-duaid.firebaseapp.com",
+    databaseURL: "https://webinarchats-duaid-default-rtdb.firebaseio.com",
+    projectId: "webinarchats-duaid",
+    storageBucket: "webinarchats-duaid.firebasestorage.app",
+    messagingSenderId: "896959903849",
+    appId: "1:896959903849:web:d5dfee182b5328b3490af8",
+    measurementId: "G-07BHGP84DS"
+  };
 
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.database(app);
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 
 // Form Submit Listener
 document.getElementById('login-form').addEventListener('submit', async (event) => {

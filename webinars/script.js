@@ -1,4 +1,11 @@
-document.getElementById('login-form').addEventListener('submit', async (event) => {
+// Hardcoded user data
+const authorizedUsers = [
+    { Phone: "9468538013", Email: "jainj0624@gmail.com", Granted: true },
+    { Phone: "9876543210", Email: "user2@example.com", Granted: true },
+    { Phone: "1234567890", Email: "user3@example.com", Granted: false }
+];
+
+document.getElementById('login-form').addEventListener('submit', (event) => {
     event.preventDefault();
 
     const phone = document.getElementById('phone').value.trim();
@@ -9,25 +16,16 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         return;
     }
 
-    try {
-        // Fetch user data from the local JSON file
-        const response = await fetch('./webinars/users.json');
-        const data = await response.json();
+    // Check if the email and phone match any authorized user
+    const user = authorizedUsers.find(
+        u => u.Email === email && u.Phone === phone
+    );
 
-        // Check if the email and phone match any authorized user
-        const user = data.authorizedUsers.find(
-            u => u.Email === email && u.Phone === phone
-        );
-
-        if (user && user.Granted) {
-            alert('Access Granted!');
-            document.getElementById('login-section').style.display = 'none';
-            document.getElementById('webinar-section').style.display = 'block';
-        } else {
-            alert('Access Denied! Incorrect details or access not granted.');
-        }
-    } catch (error) {
-        console.error('Error loading user data:', error);
-        alert('An error occurred. Please try again later.');
+    if (user && user.Granted) {
+        alert('Access Granted!');
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('webinar-section').style.display = 'block';
+    } else {
+        alert('Access Denied! Incorrect details or access not granted.');
     }
 });

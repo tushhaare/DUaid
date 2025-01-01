@@ -1,3 +1,8 @@
+// Import Firebase (if using npm)
+// import { initializeApp } from "firebase/app";
+// import { getDatabase, ref, get } from "firebase/database";
+// import { getAnalytics } from "firebase/analytics";
+
 // Firebase Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAMN3DLIbR62qCmxlhSg4yL0-RVFPOlB-k",
@@ -8,11 +13,12 @@ const firebaseConfig = {
     messagingSenderId: "896959903849",
     appId: "1:896959903849:web:d5dfee182b5328b3490af8",
     measurementId: "G-07BHGP84DS"
-  };
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase(app); // Initialize Firebase Database
 
 // Form Submit Listener
 document.getElementById('login-form').addEventListener('submit', async (event) => {
@@ -21,22 +27,26 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
 
+    // Basic validation for phone and email
     if (!phone || phone.length < 10 || !email.includes('@')) {
         alert('Please enter a valid phone number and email address.');
         return;
     }
 
     try {
+        // Encode email to match Firebase key requirements
+        const encodedEmail = email.replace(/\./g, ','); // Replace '.' with ','
+
         // Check if the email exists in the database
-        const snapshot = await db.ref(`authorizedUsers/${email}`).get();
+        const snapshot = await get(ref(db, `authorizedUsers/${encodedEmail}`));
 
         if (snapshot.exists()) {
             const userData = snapshot.val();
-            
-            // Match the phone number
+
+            // Match the phone number and granted access
             if (userData.phone === phone && userData.granted) {
                 alert('Access Granted! Redirecting...');
-                
+
                 // Hide login section and show webinar section
                 document.getElementById('login-section').style.display = 'none';
                 document.getElementById('webinar-section').style.display = 'block';

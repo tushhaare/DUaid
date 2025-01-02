@@ -6,6 +6,23 @@
     <title>Login and Webinar</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        // Disable specific key combinations
+        document.addEventListener('keydown', (e) => {
+            // Disable F12
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+            // Disable Ctrl+Shift+I, Ctrl+Shift+J, and Ctrl+U
+            if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
+                (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </head>
 <body>
     <div id="login-section">
@@ -22,18 +39,31 @@
     </div>
 
     <div id="webinar-section" style="display: none;">
-        <h1>Welcome to the Webinar</h1>
+        <h1>Live Webinar</h1>
         <div id="video-container">
+            <!-- YouTube Live Stream -->
             <iframe 
                 id="live-stream" 
                 width="800" 
-                height="450" 
-                src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" 
+                height="500" 
+                src="https://www.youtube.com/embed/kuJJ12ZJCC4" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
             </iframe>
         </div>
+<!-- Tawk.to Chat Script -->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/6776235749e2fd8dfe0183f6/1igink3j8';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
     </div>
 </body>
 </html>

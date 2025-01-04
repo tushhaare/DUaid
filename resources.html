@@ -1,57 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUaid - Resources</title>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <link href="/navbarres.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
-    <style>
-        /* General Styles */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #ffcccc;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Resources - DUaid</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="/js/html5shiv.js"></script>
+	<script src="/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<style>
+        /* Initially hide the main content */
+        #main-content {
+            display: none;
         }
 
-        .container {
-            margin: auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 500px;
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
             text-align: center;
         }
 
+
         h1 {
-            color: #660000;
+            color: #ffffff;
         }
 
-        select, button {
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 16px;
-            width: 100%;
-            border: 1px solid #660000;
-            border-radius: 5px;
-        }
+        .form-container select, 
+		.form-container button {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #660000;
+    border-radius: 5px;
+}
 
         button {
-            background-color: grey;
+            background-color: rgb(252, 0, 0);
             color: white;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #333;
         }
 
         iframe {
@@ -68,59 +64,53 @@
             color: #660000;
             margin-top: 20px;
         }
-
-        /* Navbar Styling */
-        nav {
-            margin-bottom: 20px;
-        }
-
-        .navbar {
-            position: static;
-        }
-
-        .navbar-brand img {
-            width: 100px;
-        }
-
-        footer {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-    /* Custom navbar style */
-    .navbar-custom {
-        background-color: #660000 !important;
-    }
-
-    </style>
-</head>
+</style>
 <body>
-    <!-- Navbar -->
-    <div id="nav">
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar-custom">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img src="https://i.imghippo.com/files/4jLix1725805585.png" alt="DUaid">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/about" target="_blank">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/declaration" target="_blank">Declaration</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/work" target="_blank">Work with Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/feedback" target="_blank">Feedback</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="index.html">
+					<img src="assets/images/logo-167x40.png" alt="LOGO"></a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav pull-right mainNav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="declaration.html">Declaration</a></li>
+						<li><a href="work.html">Work With Us</a></li>
+						<li><a href="feedback.html">Feedback</a></li>
+						<li class="dropdown">
+		<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+			More <b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="https://chat.whatsapp.com/IyFUdVmCDzFEE7Nohmntpq">Accommodation - PG/Flats</a></li>
+		</ul>
+	</li>
+	
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+	<!-- /.navbar -->
 
+	<header id="head" class="secondary">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>GE/SEC/VAC/AEC</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+<div> <br>
     <!-- Content -->
-    <div class="container">
-        <h1>DUaid - Resources</h1>
+    <div class="form-container">
         <div>
             <label for="type">Select Paper Type:</label>
             <select id="type" onchange="loadPapers()">
@@ -270,105 +260,74 @@
             }, 500);
         }
     </script>
-        <div class="popup-overlay" id="popup-overlay">
-            <div class="popup">
-                <h2><b>Stay Connected</b></h2>
-                <img src="/assets/images/notice-popupAEC.png" alt="Notice Image" class="promo-image">
-                <div class="social-links">
-                    <a href="https://www.whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111728.png" alt="WhatsApp">
-                    </a>
-                    <a href="https://t.me/RealDUaid" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
-                    </a>
-                    <a href="https://instagram.com/RealDUaid" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
-                    </a>
-                    <a href="mailto:cuetbynta@yahoo.com">
-                        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-                    </a>
-                </div>
-                <button class="continue-btn" id="continue-btn">Continue to Website</button>
-            </div>
-        </div>
-        
-        <style>
-            .popup-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-            }
-        
-            /* Popup Box */
-            .popup {
-        background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        width: 320px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            }
-        
-            .popup h2 {
-        font-size: 18px;
-        margin-bottom: 20px;
-        color: #333;
-            }
-        /* Promo Image */
-    .promo-image {
-        width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-    }
-            /* Social Links */
-            .social-links {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 18px;
-            }
-        
-            .social-links a img {
-                width: 30px;
-                height: 30px;
-                transition: transform 0.3s ease;
-            }
-        
-            .social-links a img:hover {
-                transform: scale(1.1);
-            }
-        
-            /* Continue Button */
-            .continue-btn {
-                background: #660000;
-                color: #fff;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                font-size: 14px;
-                cursor: pointer;
-                text-transform: uppercase;
-            }
-        
-            .continue-btn:hover {
-                background: #090909;
-            }
-        </style>
-        
-        <script>
-            // JavaScript to handle the continue button
-            const continueButton = document.getElementById('continue-btn');
-            const popupOverlay = document.getElementById('popup-overlay');
-        
-            continueButton.addEventListener('click', () => {
-                popupOverlay.style.display = 'none'; // Hide the popup
-            });
-        </script>
+	<footer id="footer">
+		<div class="container">
+			<div class="social text-center">
+				<a href="https://www.whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d"><i class="fa fa-whatsapp"></i></a>
+				<a href="https://instagram.com/RealDUaid"><i class="fa fa-instagram"></i></a>
+				<a href="http://t.me/RealDUaid"><i class="fa fa-telegram"></i></a>
+			<!--CLEAR FLOATS-->
+		</div>
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="simplenav">
+								<a href="index.html">Home</a> | 
+								<a href="about.html">About</a>|
+                                <a href="declaration.html">Declaration</a>|
+                                <a href="work.html">Work With Us</a>|
+                                <a href="feedback.html">Feedback</a>|
+								<a href="contact.html">Contact</a>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="text-right">
+								Copyright &copy; 2024.</a>
+							</p>
+						</div>
+					</div>
+
+				</div>
+				<!-- /row of panels -->
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		document.getElementById("goButton").addEventListener("click", showContent);
+	
+		function showContent() {
+			const paperSelect = document.getElementById("paperSelect").value;
+			const driveFrame = document.getElementById("driveFrame");
+			const loadingMessage = document.getElementById("loadingMessage");
+	
+			if (paperSelect === "") {
+				alert("Please select a paper.");
+			} else {
+				// Show loading message and hide the iframe while loading
+				loadingMessage.style.display = "block";
+				driveFrame.style.display = "none";
+	
+				// Simulate loading and set iframe source
+				setTimeout(() => {
+					loadingMessage.style.display = "none";
+					driveFrame.src = paperSelect;
+					driveFrame.style.display = "block";
+				}, 500); // Simulated delay (500ms)
+			}
+		}
+	</script>
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="/js/custom.js"></script>
+
+
 </body>
 </html>

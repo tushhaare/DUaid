@@ -1,126 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Resources - DUaid</title>
-    <link rel="stylesheet" href=button.js">
-    <style>
-
-/* Navbar Styling */
-.navbar {
-    background-color: #ffcccc; /* Background color */
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #ffcccc;
-}
-
-.logo a {
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: bold;
-    color: #660000;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin: 0 20px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #660000;
-    font-size: 18px;
-    transition: color 0.5s;
-}
-
-.nav-links a:hover {
-    color: #cc0000;
-}
-
-/* Mobile Menu Icon */
-.menu-icon {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-}
-
-.menu-icon span {
-    background-color: #660000;
-    width: 25px;
-    height: 3px;
-    margin: 4px 0;
-    transition: 0.3s;
-}
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-.nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #ffcccc;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 1;
-}
-
-.nav-links.active {
-    display: flex;
-    }
-
-    .nav-links li {
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .menu-icon {
-        display: flex;
-    }
-}
-        /* Style for the popup background overlay */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B.A. (H.) History - DUaid</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="/js/html5shiv.js"></script>
+	<script src="/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<style>
         /* Initially hide the main content */
         #main-content {
             display: none;
         }
 
         body {
-            background-color: #ffcccc;
+            background-color: #ffffff;
             font-family: Arial, sans-serif;
             text-align: center;
         }
 
-        .container {
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 500px;
-        }
 
         h1 {
-            color: #660000;
+            color: #ffffff;
         }
 
         select, button {
@@ -133,7 +44,7 @@
         }
 
         button {
-            background-color: grey;
+            background-color: rgb(252, 0, 0);
             color: white;
             cursor: pointer;
         }
@@ -152,84 +63,52 @@
             color: #660000;
             margin-top: 20px;
         }
-    </style>
-</head>
-    <body>
-        <!-- Navbar -->
-        <nav class="navbar">
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="https://drive.google.com/drive/folders/1EKweoSGZIubsxEO5RjM95cODnsvpQRSX?usp=drive_link">Common Readings (All Semesters)</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/declaration">Declaration</a></li>
-                <li><a href="/work">Work With Us</a></li>
-                <li><a href="/feedback">Feedback</a></li>
-
-            </ul>
-<div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-<script>
-    function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('active');
-}
-</script>
-        </nav>
-<!-- Popup Notice -->
-<div id="popup" class="popup-overlay">
-    <div class="popup-content">
-        <span id="closePopup" style="cursor: pointer; font-size: 24px; color: #660000; position: absolute; top: 2px; right: 5px;">&times;</span>
-        <a href="https://whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d" target="_blank">
-            <img src="https://i.ibb.co/34t61cq/New-Update-20241114-203503-0000.png" alt="Notice Image" style="width: 300px; height: auto; border-radius: 5px;">
-        </a>
-        <p style="color: black; margin-top: 10px;">NEW UPDATE IS OUT!</p>
-    </div>
-</div>
-
-<style>
-    /* Style for the popup background overlay */
-    .popup-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
-    }
-
-    /* Style for the popup content */
-    .popup-content {
-        position: relative;
-        background: #ffcccc;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-    }
 </style>
+<body>
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="index.html">
+					<img src="assets/images/logo-167x40.png" alt="LOGO"></a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav pull-right mainNav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="declaration.html">Declaration</a></li>
+						<li><a href="work.html">Work With Us</a></li>
+						<li><a href="feedback.html">Feedback</a></li>
+						<li class="dropdown">
+		<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+			More <b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="https://chat.whatsapp.com/IyFUdVmCDzFEE7Nohmntpq">Accommodation - PG/Flats</a></li>
+		</ul>
+	</li>
+	
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+	<!-- /.navbar -->
 
-<script>
-    // Close the popup when the close button is clicked
-    document.getElementById("closePopup").onclick = function () {
-        document.getElementById("popup").style.display = "none";
-    };
-
-    // Automatically show the popup when the page loads
-    window.onload = function () {
-        document.getElementById("popup").style.display = "flex";
-    };
-</script>
-
-    <div class="container">
-        <img src="https://i.ibb.co/NKjF3Jz/20240901-181658-0000.png" alt="DUaid Logo" style="width:150px;">
-        <h1>B.A. (H.) History</h1>
+	<header id="head" class="secondary">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>B.A. (H.) History</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+<div> <br>
+	<div class="container">
         <label for="paperSelect">Select Paper:</label>
         <select id="paperSelect">
             <option value="">--Select Paper--</option>
@@ -258,40 +137,79 @@
         <div id="loadingMessage">Loading, please wait...</div>
         <iframe id="driveFrame"></iframe>
     </div>
+	<footer id="footer">
+		<div class="container">
+			<div class="social text-center">
+				<a href="https://www.whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d"><i class="fa fa-whatsapp"></i></a>
+				<a href="https://instagram.com/RealDUaid"><i class="fa fa-instagram"></i></a>
+				<a href="http://t.me/RealDUaid"><i class="fa fa-telegram"></i></a>
+			</div>
+			<div class="clear"></div>
+			<p>Last Updated on 04-01-2024 12:08 PM</p>
+            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1241121/t/2"></script> 
+		
+			<!--CLEAR FLOATS-->
+		</div>
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="social-icons">
-            <a href="https://instagram.com/cuetbynta"><i class="fab fa-instagram"></i></a>
-            <a href="https://whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://t.me/RealDUaid"><i class="fab fa-telegram"></i></a>
-            <a href="mailto:cuetbynta@yahoo.com"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p>Last Updated on 14-10-2024 07:08 AM</p>
-            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1241121/t/2"></script>
-<script>
-    document.getElementById("goButton").addEventListener("click", showContent);
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="simplenav">
+								<a href="index.html">Home</a> | 
+								<a href="about.html">About</a>|
+                                <a href="declaration.html">Declaration</a>|
+                                <a href="work.html">Work With Us</a>|
+                                <a href="feedback.html">Feedback</a>|
+								<a href="contact.html">Contact</a>
+							</p>
+						</div>
+					</div>
 
-    function showContent() {
-        const paperSelect = document.getElementById("paperSelect").value;
-        const driveFrame = document.getElementById("driveFrame");
-        const loadingMessage = document.getElementById("loadingMessage");
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="text-right">
+								Copyright &copy; 2024.</a>
+							</p>
+						</div>
+					</div>
 
-        if (paperSelect === "") {
-            alert("Please select a paper.");
-        } else {
-            // Show loading message and hide the iframe while loading
-            loadingMessage.style.display = "block";
-            driveFrame.style.display = "none";
+				</div>
+				<!-- /row of panels -->
+			</div>
+		</div>
+	</footer>
 
-            // Simulate loading and set iframe source
-            setTimeout(() => {
-                loadingMessage.style.display = "none";
-                driveFrame.src = paperSelect;
-                driveFrame.style.display = "block";
-            }, 500); // Simulated delay (500ms)
-        }
-    }
-</script>
-    </body>
+	<script>
+		document.getElementById("goButton").addEventListener("click", showContent);
+	
+		function showContent() {
+			const paperSelect = document.getElementById("paperSelect").value;
+			const driveFrame = document.getElementById("driveFrame");
+			const loadingMessage = document.getElementById("loadingMessage");
+	
+			if (paperSelect === "") {
+				alert("Please select a paper.");
+			} else {
+				// Show loading message and hide the iframe while loading
+				loadingMessage.style.display = "block";
+				driveFrame.style.display = "none";
+	
+				// Simulate loading and set iframe source
+				setTimeout(() => {
+					loadingMessage.style.display = "none";
+					driveFrame.src = paperSelect;
+					driveFrame.style.display = "block";
+				}, 500); // Simulated delay (500ms)
+			}
+		}
+	</script>
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="/js/custom.js"></script>
+
+
+</body>
 </html>

@@ -142,17 +142,6 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-				<a href="/blogs/examform-20dec" target="_blank" style="text-decoration: none;">
-                    <div class="newsBox">
-                        <div class="thumbnail">
-                            <figure><time datetime="2014-01-01">10 Dec, 2024</time><img src="assets/images/news1.png" alt=""></figure>
-                            <div class="caption maxheight2"><div class="box_inner">
-                               Last Date of filling exam form for 1st Year is extendend upto 20.12.24.
-                            </div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 				<a href="/blogs/duta-dharna18dec" target="_blank" style="text-decoration: none;">
                     <div class="newsBox">
                         <div class="thumbnail">
@@ -167,7 +156,7 @@
 					<a href="/blogs/fdp-csdu" target="_blank" style="text-decoration: none;">
                     <div class="newsBox">
                         <div class="thumbnail">
-                            <figure><time datetime="2014-01-01">14 Dec, 2024</time><img src="blogs/assets/images/5.jpg" alt=""></figure>
+                            <figure><time datetime="2014-01-01">14 Dec, 2024</time><img src="blogs/assets/images/news2.png" alt=""></figure>
                             <div class="caption maxheight2"><div class="box_inner">
                                 FDP on Quantum Computing and Post-Quantum Cryptography
                             </div></div>
@@ -185,14 +174,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-					<a href="/blogs/duelibrary" target="_blank" style="text-decoration: none;">
-                    <div class="newsBox">
-                        <div class="thumbnail">
-                            <figure><time datetime="2014-01-01">14 Aug, 2024</time><img src="assets/images/news4.jpeg" alt=""></figure>
-                            <div class="caption maxheight2"><div class="box_inner">
-                                Delhi University E-Library - Available at: duelibrary.in
-                            </div></div>
+                
+				<!-- Read More Button -->
+<div style="text-align: center; margin: 20px 0;">
+    <a href="blogs/all-blogs.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 1.2rem; text-decoration: none; border-radius: 5px; background-color: #660000; color: white; display: inline-block;">
+        Read More Blogs
+    </a>
+</div>
+
                         </div>
                     </div>
                 </div>
@@ -241,7 +230,13 @@
 			</div>
 		</div>
 	</footer>
-
+	<script>
+		document.querySelector('a[href="/all-blogs"]').addEventListener('click', function (event) {
+			event.preventDefault();
+			window.location.href = '/all-blogs';
+		});
+	</script>
+	
 	<script src="js/modernizr-latest.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

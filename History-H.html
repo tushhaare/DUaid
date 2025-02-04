@@ -34,15 +34,65 @@
             color: #ffffff;
         }
 
-        .form-container select, 
-		.form-container button {
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
+        .form-container {
     width: 100%;
-    border: 1px solid #660000;
-    border-radius: 5px;
-}
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+
+  .form-container div {
+    margin-bottom: 15px;
+  }
+
+  .form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .form-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+  }
+
+  .form-container select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.25);
+  }
+
+  #paperDropdown {
+    display: none;
+  }
+
+  #paperDropdown label {
+    font-weight: bold;
+  }
+
+  @media (max-width: 480px) {
+    .form-container {
+      padding: 15px;
+      font-size: 12px;
+    }
+
+    .form-container select {
+      font-size: 12px;
+    }
+  }
 
         button {
             background-color: rgb(252, 0, 0);
@@ -63,6 +113,11 @@
             font-size: 18px;
             color: #660000;
             margin-top: 20px;
+        }
+		#blink {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: sans-serif;
         }
 </style>
 <body>
@@ -109,6 +164,18 @@
 		</div>
 	</header>
 <div> <br>
+	<p id="blink">
+		<a href="https://drive.google.com/drive/folders/1EKKf4un0pO7mIs0xMcmUBNfD6kXCJCb2">Click Here to Access Extra PYQs - Semester II</a>
+    </p>
+    <script type="text/javascript">
+        let blink =
+            document.getElementById('blink');
+
+        setInterval(function () {
+            blink.style.opacity =
+                (blink.style.opacity == 0 ? 1 : 0);
+        }, 800); 
+    </script>
 	<div class="form-container">
         <label for="paperSelect">Select Paper:</label>
         <select id="paperSelect">
@@ -117,9 +184,9 @@
             <option value="https://drive.google.com/embeddedfolderview?id=1gVqqRFWhHl2AbYQvgPkaBKoZ0B8C7XU5#grid">History of India - I</option>
             <option value="https://drive.google.com/embeddedfolderview?id=1gXVPgysoRBYMt0Giqp0xYPwN9O2DGW05#grid">Social Formations - I</option>
             <option value="https://drive.google.com/embeddedfolderview?id=1dIQQY0-ZmM1jg-AmvQcYeYXkg75koHyV#grid">History of USA - I</option>
-            <option value="https://duaid.pages.dev/main">History of India - II</option>
-            <option value="https://duaid.pages.dev/main">Social Formations - II</option>
-            <option value="https://duaid.pages.dev/main">History of USA - II</option>
+            <option value="https://drive.google.com/embeddedfolderview?id=1Jz6_ZW3zrYaNNo4e-bI8G-xd3Rhk-kTp#grid">History of India - II</option>
+            <option value="https://drive.google.com/embeddedfolderview?id=1Rpl3oeuE7q0d84Q7k_Amf5O7_sNftSGr#grid">Social Formations - II</option>
+            <option value="https://drive.google.com/embeddedfolderview?id=1OavYELArfyBC68IrrS2hG_njCecWF-5d#grid">History of USA - II</option>
             <option value="https://drive.google.com/embeddedfolderview?id=1oUJOy3rh32B7i0cHj9wUXu--NuaW3eQe#grid">History of India - III</option>
             <option value="https://drive.google.com/embeddedfolderview?id=1CHI9Ysm9ftSwjM-HmU2ZnyyHlpf6KwW0#grid">Rise of the Modern West - I</option>
             <option value="https://drive.google.com/embeddedfolderview?id=1UHRwxJcbWSHFpxvXgUhf2yqfmH-v5SMr#grid">History of Modern China</option>
@@ -138,6 +205,7 @@
         <div id="loadingMessage">Loading, please wait...</div>
         <iframe id="driveFrame"></iframe>
     </div>
+	
 	<footer id="footer">
 		<div class="container">
 			<div class="social text-center">
@@ -146,7 +214,7 @@
 				<a href="http://t.me/RealDUaid"><i class="fa fa-telegram"></i></a>
 			</div>
 			<div class="clear"></div>
-			<p>Last Updated on 04-01-2024 12:08 PM</p>
+			<p>Last Updated on 04-02-2025 10:44 PM</p>
             <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1241121/t/2"></script> 
 		
 			<!--CLEAR FLOATS-->
@@ -175,7 +243,7 @@
 							</p>
 						</div>
 					</div>
-
+					Made with ❤️ by Tushar
 				</div>
 				<!-- /row of panels -->
 			</div>
@@ -206,10 +274,11 @@
 			}
 		}
 	</script>
-	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="js/modernizr-latest.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="/js/custom.js"></script>
+	<script src="js/jquery.cslider.js"></script>
+	<script src="js/custom.js"></script>
 
 
 </body>

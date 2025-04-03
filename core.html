@@ -185,7 +185,7 @@ iframe {
 	</header>
 <div> <br>
     
-<h2>NOTE : This Page is Under-Development. Only Second Semester Resources are Available!</h2>
+<h2>NOTE : This Page is Under-Development. Only B.A. (Hons.) History Resources are Available!</h2>
 
 <!-- Content -->
 <div class="form-container">
@@ -220,7 +220,11 @@ iframe {
         <label for="semester">Select Semester:</label>
         <select id="semester" onchange="loadPapers()">
             <option value="">--Select Semester--</option>
+            <option value="S">Syllabus (All Semesters)</option>
+            <option value="1">Semester 1</option>
             <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
         </select>
     </div>
     <div id="paperDropdown" style="display: none;">
@@ -238,144 +242,162 @@ iframe {
 <script>
     const paperOptions = {
         "B.A. (Hons.) History": {
+            S: [
+        { name: "All Semesters", folderId: "https://drive.google.com/embeddedfolderview?id=14sEQO1yD9j21OX8Lv7QfaH04lb3v95eM#list" }
+    ],
         
+        1: [
+        { name: "History of India - I", folderId: "https://drive.google.com/embeddedfolderview?id=1gVqqRFWhHl2AbYQvgPkaBKoZ0B8C7XU5#grid" },
+        { name: "Social Formations - I", folderId: "https://drive.google.com/embeddedfolderview?id=1gXVPgysoRBYMt0Giqp0xYPwN9O2DGW05#grid" },
+        { name: "History of USA - I", folderId: "https://drive.google.com/embeddedfolderview?id=1dIQQY0-ZmM1jg-AmvQcYeYXkg75koHyV#grid" }
+    ],
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "History of India - II", folderId: "https://drive.google.com/embeddedfolderview?id=1Jz6_ZW3zrYaNNo4e-bI8G-xd3Rhk-kTp#grid" },
+            { name: "Social Formations - II", folderId: "https://drive.google.com/embeddedfolderview?id=1Rpl3oeuE7q0d84Q7k_Amf5O7_sNftSGr#grid" },
+            { name: "History of USA - II", folderId: "https://drive.google.com/embeddedfolderview?id=1OavYELArfyBC68IrrS2hG_njCecWF-5d#grid" }
+        ],
+        3: [
+            { name: "History of India - III", folderId: "https://drive.google.com/embeddedfolderview?id=1oUJOy3rh32B7i0cHj9wUXu--NuaW3eQe#grid" },
+            { name: "Rise of the Modern West - I", folderId: "https://drive.google.com/embeddedfolderview?id=1CHI9Ysm9ftSwjM-HmU2ZnyyHlpf6KwW0#grid" },
+            { name: "History of Modern China", folderId: "https://drive.google.com/embeddedfolderview?id=1UHRwxJcbWSHFpxvXgUhf2yqfmH-v5SMr#grid" }
+        ],
+        4: [
+            { name: "History of India - IV", folderId: "https://drive.google.com/embeddedfolderview?id=1AfJ2tqJ6biocfmCPoIEyk2TSia5mZ9IE#grid" },
+            { name: "Rise of the Modern West - II", folderId: "https://duaid.pages.dev/main" },
+            { name: "History of Modern Japan", folderId: "https://duaid.pages.dev/main" }
         ]
     },
         "B.A. (Hons.) English": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
         },
         "B.A. (Hons.) Political Science": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     },
         "B.A. (Hons.) Economics": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
         },
         "B.A. (Hons.) Geography": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     },
         "B.A. (Hons.) Sociology": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     },
         "B.A. (Hons.) Hindi": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
         },
         "B.A. (Hons.) Psychology": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     },
         "B.A. (Hons.) Philosophy": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
         },
         "B.Com. (Hons.)": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     },
         "BMS": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
         },
         "BBA": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     },
         "BBE": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
         },
         "B.Sc. (Hons.) Botany": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     },
     "B.Sc. (Hons.) Chemistry": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
         },
         "B.Sc. (Hons.) Computer Science": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     },
     "B.Sc. (Hons.) Electronics": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
         },
         "B.Sc. (Hons.) Mathematics": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     },
     "B.Sc. (Hons.) Statistics": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
         },
         "B.Sc. (Hons.) Zoology": {
             2: [
-            { name: "History of India - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "Social Formations - II", folderId: "https://duaid.pages.dev/main" },
-            { name: "History of USA - II", folderId: "https://duaid.pages.dev/main" }
+            { name: "DSC 1 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 2 (to be updated)", folderId: "https://duaid.pages.dev/main" },
+            { name: "DSC 3 (to be updated)", folderId: "https://duaid.pages.dev/main" }
         ]
     }
     };
@@ -444,7 +466,7 @@ iframe {
 				<a href="http://t.me/RealDUaid"><i class="fa fa-telegram"></i></a>
 			<!--CLEAR FLOATS-->
             <footer>
-                <p>Last Updated on 03-01-2025 08:35 PM</p>
+                <p>Last Updated on 03-04-2025 07:03 AM</p>
                 <div id="counter-container">
                     <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1271068/t/2"></script>
                 </div>
@@ -475,6 +497,8 @@ iframe {
                             Copyright &copy; 2024.</a>
                         </p>
                     </div>
+                </div>
+                Made with ❤️ by Tushar
                 </div>
 	</footer>
 

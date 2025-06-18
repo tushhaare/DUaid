@@ -11,6 +11,7 @@ document.getElementById("predictorForm").addEventListener("submit", function(e) 
         key: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTDyRT1GXI6Vks97E0Aa-6LEwbMfplDjrmJ-wzYVFZH-WSbOLdUHGajH9CuxVbQiBQanJY8lKiV4nvl/pubhtml",
         simpleSheet: true,
         callback: function(data) {
+                console.log("Sheet loaded:", data); // ✅ Add this for debugging
             const matches = data.filter(row => row.Course && row.Course.trim() === course && row[category]);
 
             const eligible = matches.map(row => {

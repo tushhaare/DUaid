@@ -62,20 +62,19 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
 
             resultDiv.innerText = output;
 
-            // Optional logging to Google Sheet
-            fetch("https://script.google.com/macros/s/AKfycbxWlEhSYiybR49U-WdjAIEaACt_49N1twBRwZRzvQbOTKVvf3nf0_SwTyXUsTSxv76rJg/exec", {
-                method: "POST",
-                body: JSON.stringify({
-                    name: name,
-                    score: score,
-                    course: course,
-                    category: category,
-                    gender: gender
-                }),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
+           fetch("https://script.google.com/macros/s/AKfycbxCOXSUWaPWjOPJ1K7pFXJtzgCrVgrx_1wf2B_nvszEUp8mApDrPMqwYUwe_b5X_44MAw/exec", {
+    method: "POST",
+    body: JSON.stringify({
+        name: name,
+        score: score,
+        course: course,
+        category: category,
+        gender: gender
+    }),
+    headers: {
+        "Content-Type": "application/json"
+    }
+});
         })
         .catch(err => {
             console.error(err);

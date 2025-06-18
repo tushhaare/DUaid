@@ -8,7 +8,7 @@ document.getElementById("predictorForm").addEventListener("submit", function(e) 
     resultDiv.innerText = "Loading...";
 
     Tabletop.init({
-        key: "1vUDcLcmPptD1mKOmVCU5YcDyoQg-qDrWJlmKE2tEasE",
+        key: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTDyRT1GXI6Vks97E0Aa-6LEwbMfplDjrmJ-wzYVFZH-WSbOLdUHGajH9CuxVbQiBQanJY8lKiV4nvl/pubhtml",
         simpleSheet: true,
         callback: function(data) {
             const matches = data.filter(row => row.Course && row.Course.trim() === course && row[category]);

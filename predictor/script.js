@@ -1,6 +1,7 @@
 document.getElementById("predictorForm").addEventListener("submit", function (e) {
     e.preventDefault();
-
+    
+    const name = document.getElementById("name").value.trim();
     const score = parseFloat(document.getElementById("cuetScore").value);
     const course = document.getElementById("course").value.trim();
     const category = document.getElementById("category").value.trim();

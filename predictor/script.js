@@ -1,6 +1,6 @@
 document.getElementById("predictorForm").addEventListener("submit", function (e) {
     e.preventDefault();
-    
+
     const name = document.getElementById("name").value.trim();
     const score = parseFloat(document.getElementById("cuetScore").value);
     const course = document.getElementById("course").value.trim();
@@ -15,10 +15,9 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
         .then(response => response.text())
         .then(csvText => {
             const data = csvToArray(csvText);
+            const courseFiltered = data.filter(row => row.Course && row.Course.trim() === course);
 
-            const filteredByCourse = data.filter(row => row.Course && row.Course.trim() === course);
-
-            const eligible = filteredByCourse.map(row => {
+            let eligible = courseFiltered.map(row => {
                 const cutoff = parseFloat(row[category]);
                 const diff = Math.abs(score - cutoff);
                 return { ...row, cutoff, diff };
@@ -31,40 +30,54 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
 
             eligible.sort((a, b) => a.diff - b.diff);
 
-            if (eligible.length > 0) {
-                let output = "";
-                eligible.slice(0, 5).forEach((row, i) => {
-                    output += `${i + 1}. ${row.College} — Cutoff: ${row.cutoff}\n`;
-                });
-                resultDiv.innerText = output;
+            // If less than 3, add fallback entries below score
+            if (eligible.length < 3) {
+                const fallback = courseFiltered
+                    .map(row => {
+                        const cutoff = parseFloat(row[category]);
+                        return { ...row, cutoff, diff: score - cutoff };
+                    })
+                    .filter(row =>
+                        !isNaN(row.cutoff) &&
+                        row.cutoff < score &&
+                        !(gender === "Male" && row.College.includes("(W)")) &&
+                        !eligible.some(e => e.College === row.College) // avoid duplicates
+                    )
+                    .sort((a, b) => b.cutoff - a.cutoff); // closest lower first
+
+                eligible = [...eligible, ...fallback].slice(0, 5);
+            }
+
+            if (eligible.length === 0) {
+                resultDiv.innerText = "❌ No colleges found. Try changing course or category.";
                 return;
             }
 
-            // Fallback for closest lower match
-            const fallback = filteredByCourse
-                .map(row => {
-                    const cutoff = parseFloat(row[category]);
-                    const diff = score - cutoff;
-                    return { ...row, cutoff, diff };
-                })
-                .filter(row =>
-                    !isNaN(row.cutoff) &&
-                    row.cutoff <= score &&
-                    !(gender === "Male" && row.College.includes("(W)"))
-                )
-                .sort((a, b) => b.cutoff - a.cutoff);
+            let output = "";
+            eligible.forEach((row, i) => {
+                output += `${i + 1}. ${row.College} — Cutoff: ${row.cutoff}\n`;
+            });
 
-            if (fallback.length > 0) {
-                const nearest = fallback[0];
-                resultDiv.innerText = `⚠️ No close match in ±10 range.\nClosest below your score:\n${nearest.College} — Cutoff: ${nearest.cutoff}`;
-                return;
-            }
+            resultDiv.innerText = output;
 
-            resultDiv.innerText = "❌ No colleges found. Try adjusting course, category or check your details.";
+            // Optional logging to Google Sheet
+            fetch("YOUR_WEB_APP_URL", {
+                method: "POST",
+                body: JSON.stringify({
+                    name: name,
+                    score: score,
+                    course: course,
+                    category: category,
+                    gender: gender
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
         })
         .catch(err => {
             console.error(err);
-            resultDiv.innerText = "Error loading data. Please try again later.";
+            resultDiv.innerText = "⚠️ Error loading data. Try again later.";
         });
 });
 

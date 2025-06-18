@@ -11,6 +11,8 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
 
     const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTDyRT1GXI6Vks97E0Aa-6LEwbMfplDjrmJ-wzYVFZH-WSbOLdUHGajH9CuxVbQiBQanJY8lKiV4nvl/pub?output=csv";
 
+
+    
     fetch(csvUrl)
         .then(response => response.text())
         .then(csvText => {
@@ -61,7 +63,7 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
             resultDiv.innerText = output;
 
             // Optional logging to Google Sheet
-            fetch("YOUR_WEB_APP_URL", {
+            fetch("https://script.google.com/macros/s/AKfycbxWlEhSYiybR49U-WdjAIEaACt_49N1twBRwZRzvQbOTKVvf3nf0_SwTyXUsTSxv76rJg/exec", {
                 method: "POST",
                 body: JSON.stringify({
                     name: name,

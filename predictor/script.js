@@ -11,8 +11,6 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
 
     const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTDyRT1GXI6Vks97E0Aa-6LEwbMfplDjrmJ-wzYVFZH-WSbOLdUHGajH9CuxVbQiBQanJY8lKiV4nvl/pub?output=csv";
 
-
-    
     fetch(csvUrl)
         .then(response => response.text())
         .then(csvText => {
@@ -32,7 +30,6 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
 
             eligible.sort((a, b) => a.diff - b.diff);
 
-            // If less than 3, add fallback entries below score
             if (eligible.length < 3) {
                 const fallback = courseFiltered
                     .map(row => {
@@ -43,9 +40,9 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
                         !isNaN(row.cutoff) &&
                         row.cutoff < score &&
                         !(gender === "Male" && row.College.includes("(W)")) &&
-                        !eligible.some(e => e.College === row.College) // avoid duplicates
+                        !eligible.some(e => e.College === row.College)
                     )
-                    .sort((a, b) => b.cutoff - a.cutoff); // closest lower first
+                    .sort((a, b) => b.cutoff - a.cutoff);
 
                 eligible = [...eligible, ...fallback].slice(0, 5);
             }
@@ -62,23 +59,24 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
 
             resultDiv.innerText = output;
 
-           fetch("https://api.airtable.com/v0/yxB42dVfd0aXFj/cuet_data", {
-        method: "POST",
-        headers: {
-            "Authorization": "Bearer patsOAw0H925qdpDU.65a340b2bf5f406dcf9acfaefb700fd010d0e7ff45e5cedf175e6c900e7d628b",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            fields: {
-                "Name": name,
-                "Score": score,
-                "Course": course,
-                "Category": category,
-                "Gender": gender
-            }
-        })
-    })
-    .then(res => res.json())
+            // Airtable submission
+            fetch("https://api.airtable.com/v0/yxB42dVfd0aXFj/cuet_data", {
+                method: "POST",
+                headers: {
+                    "Authorization": "Bearer patsOAw0H925qdpDU.65a340b2bf5f406dcf9acfaefb700fd010d0e7ff45e5cedf175e6c900e7d628b",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    fields: {
+                        "Name": name,
+                        "Score": score,
+                        "Course": course,
+                        "Category": category,
+                        "Gender": gender
+                    }
+                })
+            })
+            .then(res => res.json())
             .then(data => {
                 console.log("✅ Saved to Airtable:", data);
                 alert("Your data has been submitted successfully!");
@@ -92,6 +90,7 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
             console.error(err);
             resultDiv.innerText = "⚠️ Error loading data. Try again later.";
         });
+});
 
 // CSV parser
 function csvToArray(str, delimiter = ",") {

@@ -62,24 +62,32 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
 
             resultDiv.innerText = output;
 
-           fetch("https://script.google.com/macros/s/AKfycbxCOXSUWaPWjOPJ1K7pFXJtzgCrVgrx_1wf2B_nvszEUp8mApDrPMqwYUwe_b5X_44MAw/exec", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    name: name,
-    score: score,
-    course: course,
-    category: category,
-    gender: gender
-  })
-})
-.then(response => response.text())
-.then(data => console.log("✅ Data saved:", data))
-.catch(error => console.error("❌ Error saving data:", error));
-            
+           fetch("https://api.airtable.com/v0/yxB42dVfd0aXFj/cuet_data", {
+        method: "POST",
+        headers: {
+            "Authorization": "patsOAw0H925qdpDU.65a340b2bf5f406dcf9acfaefb700fd010d0e7ff45e5cedf175e6c900e7d628b",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            fields: {
+                "Name": name,
+                "Score": score,
+                "Course": course,
+                "Category": category,
+                "Gender": gender
+            }
         })
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log("✅ Saved to Airtable:", data);
+        alert("Your data has been submitted successfully!");
+    })
+    .catch(error => {
+        console.error("❌ Error saving to Airtable:", error);
+        alert("Something went wrong. Try again later.");
+    });
+});
         .catch(err => {
             console.error(err);
             resultDiv.innerText = "⚠️ Error loading data. Try again later.";

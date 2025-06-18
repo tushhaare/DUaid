@@ -1,3 +1,10 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js';
+
+const SUPABASE_URL = 'https://bvokjeuarlwbqdquhlps.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ2b2tqZXVhcmx3YnFkcXVobHBzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAyNTAxODMsImV4cCI6MjA2NTgyNjE4M30.yMOEGDU2paNU7tELbZG9ATyyrhnOvzDgmZ7Pb2uTXcI';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 document.getElementById("predictorForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -59,32 +66,19 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
 
             resultDiv.innerText = output;
 
-            // Airtable submission
-            fetch("https://api.airtable.com/v0/yxB42dVfd0aXFj/cuet_data", {
-                method: "POST",
-                headers: {
-                    "Authorization": "Bearer patsOAw0H925qdpDU.65a340b2bf5f406dcf9acfaefb700fd010d0e7ff45e5cedf175e6c900e7d628b",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    fields: {
-                        "Name": name,
-                        "Score": score,
-                        "Course": course,
-                        "Category": category,
-                        "Gender": gender
+            // Submit to Supabase
+            supabase
+                .from('responses')
+                .insert([{ name, score, course, category, gender }])
+                .then(({ data, error }) => {
+                    if (error) {
+                        console.error("❌ Supabase Error:", error);
+                        alert("Failed to save your data.");
+                    } else {
+                        console.log("✅ Supabase Success:", data);
+                        alert("Your college predictor worked without errors!");
                     }
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log("✅ Saved to Airtable:", data);
-                alert("Your data has been submitted successfully!");
-            })
-            .catch(error => {
-                console.error("❌ Error saving to Airtable:", error);
-                alert("Something went wrong while saving your data. Try again later.");
-            });
+                });
         })
         .catch(err => {
             console.error(err);
@@ -92,7 +86,6 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
         });
 });
 
-// CSV parser
 function csvToArray(str, delimiter = ",") {
     const headers = str.slice(0, str.indexOf("\n")).split(delimiter).map(h => h.trim());
     const rows = str.slice(str.indexOf("\n") + 1).split("\n").filter(r => r.trim() !== "");

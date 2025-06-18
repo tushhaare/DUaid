@@ -63,18 +63,22 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
             resultDiv.innerText = output;
 
            fetch("https://script.google.com/macros/s/AKfycbxCOXSUWaPWjOPJ1K7pFXJtzgCrVgrx_1wf2B_nvszEUp8mApDrPMqwYUwe_b5X_44MAw/exec", {
-    method: "POST",
-    body: JSON.stringify({
-        name: name,
-        score: score,
-        course: course,
-        category: category,
-        gender: gender
-    }),
-    headers: {
-        "Content-Type": "application/json"
-    }
-});
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name: name,
+    score: score,
+    course: course,
+    category: category,
+    gender: gender
+  })
+})
+.then(response => response.text())
+.then(data => console.log("✅ Data saved:", data))
+.catch(error => console.error("❌ Error saving data:", error));
+            
         })
         .catch(err => {
             console.error(err);

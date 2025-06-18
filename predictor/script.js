@@ -4,6 +4,7 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
     const score = parseFloat(document.getElementById("cuetScore").value);
     const course = document.getElementById("course").value.trim();
     const category = document.getElementById("category").value.trim();
+    const gender = document.getElementById("gender").value.trim();
     const resultDiv = document.getElementById("result");
     resultDiv.innerText = "Loading...";
 
@@ -20,12 +21,17 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
                 const cutoff = parseFloat(row[category]);
                 const diff = Math.abs(score - cutoff);
                 return { ...row, cutoff, diff };
-            }).filter(row => !isNaN(row.cutoff) && row.cutoff >= (score - 10) && row.cutoff <= (score + 10));
+            }).filter(row =>
+                !isNaN(row.cutoff) &&
+                row.cutoff >= (score - 10) &&
+                row.cutoff <= (score + 10) &&
+                !(gender === "Male" && row.College.includes("(W)"))
+            );
 
             eligible.sort((a, b) => a.diff - b.diff);
 
             if (eligible.length > 0) {
-                let output = `🎯 Colleges matching your score (CUET ${score}, Course: ${course}, Category: ${category}):\n\n`;
+                let output = "";
                 eligible.slice(0, 5).forEach((row, i) => {
                     output += `${i + 1}. ${row.College} — Cutoff: ${row.cutoff}\n`;
                 });
@@ -33,25 +39,27 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
                 return;
             }
 
-            // Fallback: Show closest lower score if no match in range
+            // Fallback for closest lower match
             const fallback = filteredByCourse
                 .map(row => {
                     const cutoff = parseFloat(row[category]);
                     const diff = score - cutoff;
                     return { ...row, cutoff, diff };
                 })
-                .filter(row => !isNaN(row.cutoff) && row.cutoff <= score)
-                .sort((a, b) => b.cutoff - a.cutoff); // Highest among lower scores
+                .filter(row =>
+                    !isNaN(row.cutoff) &&
+                    row.cutoff <= score &&
+                    !(gender === "Male" && row.College.includes("(W)"))
+                )
+                .sort((a, b) => b.cutoff - a.cutoff);
 
             if (fallback.length > 0) {
                 const nearest = fallback[0];
-                resultDiv.innerText =
-                    `⚠️ No exact match within ±10 marks.\n\nClosest match below your score:\n` +
-                    `🎯 ${nearest.College} — Cutoff: ${nearest.cutoff}`;
+                resultDiv.innerText = `⚠️ No close match in ±10 range.\nClosest below your score:\n${nearest.College} — Cutoff: ${nearest.cutoff}`;
                 return;
             }
 
-            resultDiv.innerText = "❌ No colleges found even below your score. Try adjusting course or category.";
+            resultDiv.innerText = "❌ No colleges found. Try adjusting course, category or check your details.";
         })
         .catch(err => {
             console.error(err);
@@ -59,7 +67,7 @@ document.getElementById("predictorForm").addEventListener("submit", function (e)
         });
 });
 
-// Helper: CSV string to array of objects
+// CSV parser
 function csvToArray(str, delimiter = ",") {
     const headers = str.slice(0, str.indexOf("\n")).split(delimiter).map(h => h.trim());
     const rows = str.slice(str.indexOf("\n") + 1).split("\n").filter(r => r.trim() !== "");

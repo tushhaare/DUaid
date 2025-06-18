@@ -1,4 +1,4 @@
-const sheetID = "YOUR_SHEET_ID_HERE";
+const sheetID = "1vUDcLcmPptD1mKOmVCU5YcDyoQg-qDrWJlmKE2tEasE";
 
 function fetchCollegeData(score, category, course) {
   Tabletop.init({

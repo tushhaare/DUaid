@@ -18,6 +18,19 @@
 	<![endif]-->
 </head>
 <style>
+        /* Style for the popup background overlay */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
         /* Initially hide the main content */
         #main-content {
             display: none;
@@ -115,7 +128,7 @@
             margin-top: 20px;
         }
 		#blink {
-            font-size: 20px;
+            font-size: 15px;
             font-weight: bold;
             font-family: sans-serif;
         }
@@ -153,7 +166,41 @@
 		</div>
 	</div>
 	<!-- /.navbar -->
+<!-- Popup Notice -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-content">
+        <span id="closePopup" style="cursor: pointer; font-size: 24px; color: #660000; position: absolute; top: 2px; right: 5px;">&times;</span>
+        <a href="https://whatsapp.com/channel/0029VanebmiDp2QHW5exOI3d" target="_blank">
+            <img src="https://i.ibb.co/34t61cq/New-Update-20241114-203503-0000.png" alt="Notice Image" style="width: 300px; height: auto; border-radius: 5px;">
+        </a>
+        <p style="color: black; margin-top: 10px;">NEW UPDATE IS OUT!</p>
+    </div>
+</div>
 
+<style>
+    /* Style for the popup background overlay */
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    /* Style for the popup content */
+    .popup-content {
+        position: relative;
+        background: #ffcccc;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+</style>
 	<header id="head" class="secondary">
 		<div class="container">
 			<div class="row">
@@ -190,15 +237,16 @@
             <option value="https://drive.google.com/embeddedfolderview?id=1oUJOy3rh32B7i0cHj9wUXu--NuaW3eQe#grid">History of India - III</option>
             <option value="https://drive.google.com/embeddedfolderview?id=1CHI9Ysm9ftSwjM-HmU2ZnyyHlpf6KwW0#grid">Rise of the Modern West - I</option>
             <option value="https://drive.google.com/embeddedfolderview?id=1UHRwxJcbWSHFpxvXgUhf2yqfmH-v5SMr#grid">History of Modern China</option>
-            <option value="https://duaid.pages.dev/main">History of India – IV</option>
-            <option value="https://duaid.pages.dev/main">Rise of the Modern West - II</option>
-            <option value="https://duaid.pages.dev/main">History of Modern Japan</option>
-            <option value="https://duaid.pages.dev/main">History of India – V</option>
-            <option value="https://duaid.pages.dev/main">History of India – VI</option>
-            <option value="https://duaid.pages.dev/main">History of Modern Europe - I</option>
+            <option value="https://drive.google.com/embeddedfolderview?id=1AfJ2tqJ6biocfmCPoIEyk2TSia5mZ9IE#grid">History of India – IV</option>
+            <option value="https://drive.google.com/embeddedfolderview?id=1TykQIOMfmYhIKktA2sxKEYPu1Ef63s9B#grid">Rise of the Modern West - II</option>
+            <option value="https://drive.google.com/embeddedfolderview?id=1OrN8tfTuGcWxoSpQwqfY4eXJD_V43ZcZ#grid">History of Modern Japan</option>
+            <option value="https://drive.google.com/embeddedfolderview?id=1SdX57CaA-RdKyf-zRyE2lvd2x5BhfTwI#grid">History of India – V</option>
+            <option value="https://drive.google.com/embeddedfolderview?id=1DOLKmAMVizD7LqEfzweQ-oB_BCoc4SXZ#grid">History of India – VI</option>
+            <option value="https://drive.google.com/embeddedfolderview?id=1XYMgM6vwv_mWa0oTb6nfrn5Q4FEv5HFR#grid">History of Modern Europe - I</option>
             <option value="https://duaid.pages.dev/main">History of India – VII</option>
             <option value="https://duaid.pages.dev/main">History of India – VIII</option>
             <option value="https://duaid.pages.dev/main">History of Modern Europe - II</option>
+			<option value="https://drive.google.com/embeddedfolderview?id=1aQqfeAknX80cPQxaAW7najpIkFfJostZ#grid">DSE - History of the USSR</option>
             <!-- Add more options here -->
         </select>
         <button id="goButton">Go</button>
@@ -214,7 +262,7 @@
 				<a href="http://t.me/RealDUaid"><i class="fa fa-telegram"></i></a>
 			</div>
 			<div class="clear"></div>
-			<p>Last Updated on 04-02-2025 10:44 PM</p>
+			<p>Last Updated on 25-01-2026 02:04 PM</p>
             <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1241121/t/2"></script> 
 		
 			<!--CLEAR FLOATS-->
@@ -239,7 +287,7 @@
 					<div class="col-md-6 panel">
 						<div class="panel-body">
 							<p class="text-right">
-								Copyright &copy; 2024.</a>
+								Copyright &copy; 2026.</a>
 							</p>
 						</div>
 					</div>

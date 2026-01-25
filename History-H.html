@@ -201,6 +201,18 @@
         text-align: center;
     }
 </style>
+<script>
+    // Close the popup when the close button is clicked
+    document.getElementById("closePopup").onclick = function () {
+        document.getElementById("popup").style.display = "none";
+    };
+
+    // Automatically show the popup when the page loads
+    window.onload = function () {
+        document.getElementById("popup").style.display = "flex";
+    };
+</script>
+	
 	<header id="head" class="secondary">
 		<div class="container">
 			<div class="row">
